@@ -476,3 +476,9 @@ section {
 .btn-source-code:hover {
     background-color: #1b1f23;
 }
+ul li i, ul li img {
+    width: 24px; /* Задайте нужный размер */
+    height: 24px;
+    vertical-align: middle; /* Для выравнивания иконок с текстом */
+    margin-right: 8px; /* Отступ между иконкой и текстом */
+}
