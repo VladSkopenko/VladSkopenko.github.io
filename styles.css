@@ -477,8 +477,23 @@ section {
     background-color: #1b1f23;
 }
 ul li i, ul li img {
-    width: 24px; /* Задайте нужный размер */
+    width: 24px;
     height: 24px;
-    vertical-align: middle; /* Для выравнивания иконок с текстом */
-    margin-right: 8px; /* Отступ между иконкой и текстом */
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+@media (max-width: 600px) {
+    .header, .nav, .section, .footer {
+        padding: 0 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    .work-experience-item, .project-card {
+        margin: 10px 0;
+        padding: 15px;
+    }
 }
