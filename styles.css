@@ -538,6 +538,30 @@ ul li i, ul li img {
 }
 
 .toggle-header {
+    background-color: #444; /* Темно-серый фон заголовка */
+    color: #ffffff; /* Белый цвет текста */
     cursor: pointer;
     margin: 0;
+}
+
+.project-card {
+    background-color: #f8f9fa; /* Светло-серый фон для карточки */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Лёгкая тень для глубины */
+}
+.photo-container {
+    position: relative;
+    display: inline-block;
+}
+
+.name-overlay {
+    position: absolute;
+    top: 50%;
+    left: 120px; /* Расположение справа от фотографии */
+    transform: translateY(-50%);
+    font-size: 61px;
+    font-weight: bold;
+    color: #444; /* Цвет текста, можно настроить */
+    white-space: nowrap; /* Чтобы текст не переносился */
 }
