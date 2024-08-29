@@ -17,6 +17,7 @@ header {
 
 nav {
     background-color: #333;
+    text-decoration: none;
     color: white;
     padding: 0.5em 0;
     position: fixed;
@@ -28,6 +29,7 @@ nav {
 
 nav ul {
     list-style: none;
+    text-decoration: none;
     margin: 0;
     padding: 0;
     display: flex;
@@ -35,6 +37,7 @@ nav ul {
 }
 
 nav ul li {
+    text-decoration: none;
     margin: 0 1em;
 }
 
@@ -46,10 +49,26 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    text-decoration: underline;
+      text-decoration: none;
 }
 
+@media (max-width: 600px) {
+    nav ul {
+        display: none;
+    }
 
+    nav .menu-toggle {
+        display: block;
+        cursor: pointer;
+        padding: 10px;
+        background-color: #444;
+    }
+
+    nav.active ul {
+        display: flex;
+        flex-direction: column;
+    }
+}
 section {
     padding: 2em;
     margin-top: 3.5em;
@@ -483,17 +502,27 @@ ul li i, ul li img {
     margin-right: 8px;
 }
 
+
 @media (max-width: 600px) {
-    .header, .nav, .section, .footer {
-        padding: 0 10px;
+    .section, .container {
+        width: 100%;
+        padding: 10px;
     }
 
-    nav ul {
-        flex-direction: column;
-    }
-
-    .work-experience-item, .project-card {
-        margin: 10px 0;
+    .education-item, .work-experience-item, .project-card {
         padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .work-experience-item h3 {
+        font-size: 18px;
+    }
+
+    .work-experience-item p, .work-experience-item ul li {
+        font-size: 14px;
+    }
+
+    nav .menu-toggle {
+        display: block;
     }
 }
