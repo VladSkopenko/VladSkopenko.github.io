@@ -526,3 +526,18 @@ ul li i, ul li img {
         display: block;
     }
 }
+
+.toggle-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+
+.project-card.open .toggle-content {
+    max-height: 1000px;
+}
+
+.toggle-header {
+    cursor: pointer;
+    margin: 0;
+}
