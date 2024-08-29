@@ -538,8 +538,8 @@ ul li i, ul li img {
 }
 
 .toggle-header {
-    background-color: #444; /* Темно-серый фон заголовка */
-    color: #ffffff; /* Белый цвет текста */
+    background-color: #444;
+    color: #ffffff;
     cursor: pointer;
     margin: 0;
 }
@@ -564,4 +564,45 @@ ul li i, ul li img {
     font-weight: bold;
     color: #444;
     white-space: nowrap;
+}
+@media (max-width: 768px) {
+    .work-experience-wrapper {
+        flex-direction: column;
+    }
+
+    .work-experience-item, .technology-column {
+        flex: none;
+        margin: 0;
+        margin-bottom: 15px;
+    }
+
+    .technology-column {
+        margin-left: 0;
+    }
+
+    .tech-list {
+        font-size: 14px;
+    }
+
+    .technologies {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .work-experience-item {
+        padding: 15px; /
+    }
+
+    .technologies h4 {
+        font-size: 18px;
+    }
+
+    .tech-list {
+        font-size: 13px;
+    }
+
+    .work-experience-footer a {
+        font-size: 14px;
+    }
 }
