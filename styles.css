@@ -606,3 +606,25 @@ ul li i, ul li img {
         font-size: 14px;
     }
 }
+.btn-dockerhub {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 4px;
+    background-color: #0db7ed;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-dockerhub img {
+    margin-right: 8px;
+}
+
+.btn-dockerhub:hover {
+    background-color: #0a9fd4;
+}
