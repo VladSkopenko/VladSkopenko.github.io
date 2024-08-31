@@ -700,3 +700,6 @@ ul li i, ul li img {
                 font-size: 1.5em;
                 padding: 15px;
             }
+        nav {
+           position: relative; /* Обеспечивает, что меню будет позиционироваться относительно nav */
+       }
