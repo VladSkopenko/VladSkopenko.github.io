@@ -132,7 +132,7 @@
                 </ul>
                 <div class="technologies">
                     <h4>Technologies:</h4>
-                    <p class="tech-list">Python, PyQt6, Git, Inno Setup, QtDesigner, CSS, cryptography, FastApi, Angular, Alembic, SQLAlchemy</p>
+                    <p class="tech-list">Python, PyQt6, Git, Inno Setup, QtDesigner, CSS, cryptography, FastApi, Angular</p>
                 </div>
                 <div class="work-experience-footer">
                     <a href="https://www.tekra.com.ua/" target="_blank" class="footer-link" title="Visit Website">
