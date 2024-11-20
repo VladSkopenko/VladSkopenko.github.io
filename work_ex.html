@@ -54,6 +54,23 @@
                 flex-direction: column;
             }
         }
+        .work-experience-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.work-experience-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: #f0f8ff;
+}
+
+.toggle-header {
+    transition: color 0.3s ease;
+}
+
+.work-experience-item:hover .toggle-header {
+    color: #3498db;
+}
     </style>
 </head>
 <body>
@@ -71,6 +88,7 @@
 </nav>
 <section id="work_experience">
     <div class="work-experience-wrapper">
+        <!-- Telegram Bot Experience -->
         <div class="work-experience-item">
             <h3 class="toggle-header">Telegram Bot</h3>
             <div class="toggle-content">
@@ -107,6 +125,8 @@
                 </div>
             </div>
         </div>
+
+        <!-- GoIT Experience -->
         <div class="work-experience-item">
             <h3 class="toggle-header">Tekra</h3>
             <div class="toggle-content">
@@ -132,7 +152,8 @@
                 </ul>
                 <div class="technologies">
                     <h4>Technologies:</h4>
-                    <p class="tech-list">Python, PyQt6, Git, Inno Setup, QtDesigner, CSS, cryptography, FastApi, Angular, Alembic, SQLAlchemy</p>
+                    <p class="tech-list">Python, PyQt6, Git, Inno Setup, QtDesigner, CSS, Cryptography, FastAPI,
+                        Angular, Alembic, SQLAlchemy</p>
                 </div>
                 <div class="work-experience-footer">
                     <a href="https://www.tekra.com.ua/" target="_blank" class="footer-link" title="Visit Website">
@@ -141,8 +162,43 @@
                 </div>
             </div>
         </div>
+
+        <!-- Tekra Experience (Mentor) -->
+        <div class="work-experience-item">
+            <h3 class="toggle-header">GoIT</h3>
+            <div class="toggle-content">
+                <p><strong>Dates:</strong> 20.11.2024 - today</p>
+                <p>Python Developer (Data Science Mentor)</p>
+                <ul>
+                    <li>Conduct code reviews to help students refine their programming techniques and ensure adherence
+                        to best practices.
+                    </li>
+                    <li>Assist students in solving complex problems, providing clear explanations and guidance.</li>
+                    <li>Lead instructional sessions and workshops to share expertise in Data Science concepts and
+                        tools.
+                    </li>
+                    <li>Offer encouragement and motivation to students, helping them stay engaged and achieve their
+                        goals.
+                    </li>
+                    <li>Provide ongoing support, fostering an environment of learning and growth.</li>
+                </ul>
+                <div class="technologies">
+                    <h4>Technologies:</h4>
+                    <p class="tech-list">Python, Git, Data Science, Machine Learning, Deep Learning, SQL, Pandas, NumPy,
+                        Scikit-learn, TensorFlow, Keras, Data Visualization, Jupyter Notebooks, Docker, GitHub, Model
+                        Evaluation</p>
+                </div>
+                <div class="work-experience-footer">
+                    <a href="https://goit.global/ua/about-us/" target="_blank" class="footer-link"
+                       title="Visit Website">
+                        <i class="fas fa-globe"></i> Visit Website
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
+
 <script>
     document.querySelectorAll('.toggle-header').forEach(header => {
         header.addEventListener('click', () => {
