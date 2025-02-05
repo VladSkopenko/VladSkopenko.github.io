@@ -8,85 +8,62 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        @media (max-width: 600px) {
-            .container {
-                padding: 10px;
-            }
+nav {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    padding: 10px 20px;
+    position: relative;
+}
 
-            .card {
-                padding: 15px;
-            }
+.menu-icon {
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+}
 
-            .photo-container img {
-                max-width: 80px;
-                margin: 0 auto;
-                display: block;
-            }
+ul {
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    transition: max-height 0.3s ease;
+}
 
-            .name-overlay {
-                text-align: center;
-                font-size: 1.2em;
-                margin-top: 10px;
-            }
+li {
+    margin: 0 15px;
+}
 
-            .contact-list li {
-                margin: 10px 0;
-            }
+a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    position: relative;
+    transition: color 0.3s;
+}
 
-            .name-overlay {
-                display: block;
-                width: 100%;
-                text-align: center;
-                font-weight: bold;
-                padding: 10px 0;
-                box-sizing: border-box;
-            }
+a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    height: 2px;
+    width: 0;
+    background: white;
+    transition: width 0.3s, left 0.3s;
+}
 
-            nav ul {
-                display: none;
-                flex-direction: column;
-                padding: 0;
-                margin: 0;
-            }
+a:hover {
+    color: #ffeb3b; /* Измените цвет текста при наведении */
+}
 
-            nav ul.active {
-                display: flex;
-            }
-
-            .menu-icon {
-                display: block;
-                cursor: pointer;
-                padding: 15px;
-                font-size: 1.5em;
-            }
-        }
-
-
-        .menu-icon {
-            display: none;
-        }
-
-
-        @media (min-width: 601px) {
-            nav ul {
-                display: flex;
-                flex-direction: row;
-            }
-        }
-         @media (max-width: 600px) {
-            .menu-icon {
-                display: block;
-                cursor: pointer;
-                font-size: 1.5em;
-                padding: 15px;
-            }
+a:hover::after {
+    width: 100%;
+    left: 0;
+}
     </style>
 </head>
 <body>
 <nav>
-    <div class="menu-icon" onclick="toggleMenu()">
-        <i class="fas fa-bars"></i>
-    </div>
     <ul>
         <li><a href="index.html">About me</a></li>
         <li><a href="projects.html">Projects</a></li>
@@ -138,9 +115,5 @@
 </section>
 </body>
 <script>
-    function toggleMenu() {
-    const navLinks = document.querySelector('nav ul');
-    navLinks.classList.toggle('active');
-}
 </script>
 </html>

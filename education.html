@@ -79,15 +79,63 @@
     gap: 30px;
     align-items: center;
 }
+nav {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    padding: 10px 20px;
+    position: relative;
+}
 
+.menu-icon {
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    transition: max-height 0.3s ease;
+}
+
+li {
+    margin: 0 15px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    position: relative;
+    transition: color 0.3s;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    height: 2px;
+    width: 0;
+    background: white;
+    transition: width 0.3s, left 0.3s;
+}
+
+a:hover {
+    color: #ffeb3b; /* Измените цвет текста при наведении */
+}
+
+a:hover::after {
+    width: 100%;
+    left: 0;
+}
 
     </style>
 </head>
 <body>
 <nav>
-    <div class="menu-icon" onclick="toggleMenu()">
-        <i class="fas fa-bars"></i>
-    </div>
     <ul>
         <li><a href="index.html">About me</a></li>
         <li><a href="projects.html">Projects</a></li>
@@ -141,11 +189,6 @@
             content.classList.toggle('show');
         });
     });
-
-                function toggleMenu() {
-            const navLinks = document.querySelector('nav ul');
-            navLinks.classList.toggle('active');
-        }
 </script>
 </body>
 </html>
