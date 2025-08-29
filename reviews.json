@@ -1,58 +1,31 @@
 {
-  "reviews": [
+    "reviews": [
     {
       "id": 1,
-      "name": "Alex Smith",
-      "position": "Senior Developer at TechCorp",
+      "name": "Andrii Samoilenko",
+      "position": "Python developer",
       "avatar": "AS",
       "rating": 5,
-      "text": "Vlad is an exceptional developer with strong problem-solving skills. His work on our logistics platform was outstanding - clean code, great documentation, and always delivered on time.",
-      "date": "December 2024"
+      "text": "Vladyslav was an excellent teammate, studied diligently, and always helped in challenging situations. He is a great team player and loves to use new technologies in projects.",
+      "date": "May 2025"
     },
-    {
-      "id": 2,
-      "name": "Maria Kovalenko",
-      "position": "Project Manager at iCORN",
-      "avatar": "MK",
-      "rating": 5,
-      "text": "Working with Vlad on the grain trading platform was a pleasure. He quickly understood complex business requirements and implemented elegant solutions. Highly recommend!",
-      "date": "January 2025"
-    },
-    {
-      "id": 3,
-      "name": "Dmytro Petrenko",
-      "position": "CTO at StartupHub",
-      "avatar": "DP",
-      "rating": 5,
-      "text": "Vlad's technical expertise and attention to detail are impressive. He helped us build a robust warehouse management system that exceeded our expectations.",
-      "date": "February 2025"
-    },
-    {
-      "id": 4,
-      "name": "Olena Lysenko",
-      "position": "Product Owner at FinTech",
-      "avatar": "OL",
-      "rating": 5,
-      "text": "Vlad's ability to translate business requirements into technical solutions is remarkable. His work on our document signing system was flawless and secure.",
-      "date": "March 2025"
-    },
-    {
-      "id": 5,
-      "name": "Viktor Shevchenko",
-      "position": "Team Lead at DevStudio",
-      "avatar": "VS",
-      "rating": 5,
-      "text": "Vlad is a team player who always goes above and beyond. His code quality and communication skills make him an asset to any development team.",
-      "date": "March 2025"
-    },
-    {
-      "id": 6,
-      "name": "Iryna Koval",
-      "position": "CEO at AgriTech",
-      "avatar": "IK",
-      "rating": 5,
-      "text": "Vlad delivered our Telegram bot for drivers ahead of schedule. His understanding of agricultural logistics and technical skills are exceptional.",
-      "date": "April 2025"
-    }
+           {
+        "id": 2,
+        "name": "Viktoriia Kalachova",
+        "position": "Python Developer",
+        "avatar": "VK",
+        "rating": 5,
+        "text": "I am thrilled to recommend Vladyslav Skopenko, who excelled as our Scrum Master and developer on the Fundament project. His leadership and technical skills were instrumental in our project's success. Vladyslav's adept management of agile processes ensured our team remained focused and productive, while his proactive approach to problem-solving fostered a collaborative environment. Beyond his role as Scrum Master, Vladyslav demonstrated exceptional technical prowess by integrating a Telegram bot into our application. His innovative approach and meticulous attention to detail resulted in a seamless user experience. His hands-on involvement in the deployment process further showcased his commitment to quality and excellence. Vladyslav's collaborative spirit and positive attitude were infectious, inspiring the team to strive for excellence. His diverse skills, combined with his leadership qualities, make him an invaluable asset to any team.",
+        "date": "August 2024"
+      },
+      {
+        "id": 3,
+        "name": "Bohdan Synytskyi",
+        "position": "Python Developer",
+        "avatar": "BS",
+        "rating": 5,
+        "text": "I had the opportunity to work with Vladyslav on joint projects in the field of Python development, and I can confidently say that he proved himself as a responsible and professional specialist. On one of our training projects, Vladyslav held the position of team lead and performed his duties exceptionally well. I was particularly impressed by his innovative and high-quality ideas, which significantly increased the efficiency of our work. I would also like to highlight Vladyslav's communication skills—he easily finds common ground with colleagues when solving complex technical issues. I really enjoyed working with him, and I sincerely hope that our paths will cross again in the future.",
+        "date": "August 2024"
+      }
   ]
 }
