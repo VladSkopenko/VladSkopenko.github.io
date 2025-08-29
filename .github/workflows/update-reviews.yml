@@ -81,13 +81,14 @@ EOF
           git add reviews.json
           git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Auto-update reviews from issue #${{ github.event.issue.number }}" && git push)
           
-      - name: Comment on issue
-        uses: actions/github-script@v7
-        with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: '✅ Your review has been automatically added to the website! Thank you for your feedback! 🎉'
-            })
+             - name: Comment on issue
+         uses: actions/github-script@v7
+         with:
+           github-token: ${{ secrets.TOKEN }}
+           script: |
+             github.rest.issues.createComment({
+               issue_number: context.issue.number,
+               owner: context.repo.owner,
+               repo: context.repo.repo,
+               body: '✅ Your review has been automatically added to the website! Thank you for your feedback! 🎉'
+             })

@@ -615,10 +615,13 @@
 
         // Function to create GitHub Issue
         async function createGitHubIssue(title, body, rating, message, name) {
+            let submitBtn;
+            let originalText;
+            
             try {
                 // Show loading state
-                const submitBtn = document.querySelector('.submit-btn');
-                const originalText = submitBtn.innerHTML;
+                submitBtn = document.querySelector('.submit-btn');
+                originalText = submitBtn.innerHTML;
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
                 submitBtn.disabled = true;
 
@@ -665,9 +668,10 @@
                 showNotification('❌ Failed to submit review. Please try again later.', 'error');
             } finally {
                 // Restore button state
-                const submitBtn = document.querySelector('.submit-btn');
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
+                if (submitBtn && originalText) {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }
             }
         }
 
