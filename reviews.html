@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews - Vlad Skopenko</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Main Content */
+        .reviews-section {
+            padding: 120px 2rem 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            color: white;
+        }
+
+        .section-header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Reviews Grid */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .review-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .review-card:nth-child(1) { animation-delay: 0.1s; }
+        .review-card:nth-child(2) { animation-delay: 0.2s; }
+        .review-card:nth-child(3) { animation-delay: 0.3s; }
+        .review-card:nth-child(4) { animation-delay: 0.4s; }
+        .review-card:nth-child(5) { animation-delay: 0.5s; }
+        .review-card:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .review-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .reviewer-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .reviewer-info h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.3rem;
+        }
+
+        .reviewer-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .review-rating {
+            display: flex;
+            gap: 0.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .star {
+            color: #ffd700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .star:hover {
+            transform: scale(1.2);
+            color: #ffed4e;
+        }
+
+        .review-text {
+            color: #555;
+            line-height: 1.7;
+            font-style: italic;
+            font-size: 1rem;
+        }
+
+        .review-date {
+            margin-top: 1rem;
+            color: #999;
+            font-size: 0.85rem;
+            text-align: right;
+        }
+
+        /* Review Form */
+        .review-form-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-header h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e1e5e9;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .rating-input {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .rating-input input[type="radio"] {
+            display: none;
+        }
+
+        .rating-input label {
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: #ddd;
+            transition: all 0.3s ease;
+        }
+
+        .rating-input input[type="radio"]:checked + label,
+        .rating-input label:hover {
+            color: #ffd700;
+            transform: scale(1.2);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .section-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .reviews-section {
+                padding: 100px 1rem 2rem;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .review-form-section {
+                padding: 2rem;
+                margin: 0 1rem;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            nav {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-header h1 {
+                font-size: 2rem;
+            }
+
+            .review-card {
+                padding: 1.5rem;
+            }
+
+            .reviewer-avatar {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                padding: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+    <nav>
+        <ul>
+            <li><a href="index.html">About me</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="work_ex.html">Work Experience</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+        </ul>
+    </nav>
+
+    <main class="reviews-section">
+        <div class="section-header">
+            <h1>Reviews</h1>
+            <p>What people say about working with me and my projects</p>
+        </div>
+
+        <div class="reviews-grid" id="reviewsGrid">
+            <!-- Reviews will be loaded here dynamically -->
+        </div>
+
+        <div class="review-form-section">
+            <div class="form-header">
+                <h2>Leave a Review</h2>
+                <p>Share your experience working with me or just say hello!</p>
+            </div>
+
+            <form id="reviewForm" action="mailto:vladskopenko@gmail.com" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <label for="name">Name (Optional)</label>
+                    <input type="text" id="name" name="name" placeholder="Your name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email (Optional)</label>
+                    <input type="email" id="email" name="email" placeholder="your.email@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="rating">Rating</label>
+                    <div class="rating-input">
+                        <input type="radio" id="star5" name="rating" value="5" checked>
+                        <label for="star5"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star4" name="rating" value="4">
+                        <label for="star4"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star3" name="rating" value="3">
+                        <label for="star3"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star2" name="rating" value="2">
+                        <label for="star2"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star1" name="rating" value="1">
+                        <label for="star1"><i class="fas fa-star"></i></label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Your Review</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Share your thoughts, experience, or just say something nice! 😊" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i>
+                    Send Review
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const href = link.getAttribute('href');
+                if (href !== '#') {
+                    window.location.href = href;
+                }
+            });
+        });
+
+        // Load reviews from JSON
+        let reviews = [];
+
+        async function loadReviews() {
+            try {
+                const response = await fetch('reviews.json');
+                const data = await response.json();
+                reviews = data.reviews;
+                displayReviews();
+            } catch (error) {
+                console.error('Error loading reviews:', error);
+                // Fallback to default reviews if JSON fails to load
+                reviews = [
+                    {
+                        id: 1,
+                        name: "Alex Smith",
+                        position: "Senior Developer at TechCorp",
+                        avatar: "AS",
+                        rating: 5,
+                        text: "Vlad is an exceptional developer with strong problem-solving skills. His work on our logistics platform was outstanding - clean code, great documentation, and always delivered on time.",
+                        date: "December 2024"
+                    }
+                ];
+                displayReviews();
+            }
+        }
+
+        function displayReviews() {
+            const grid = document.getElementById('reviewsGrid');
+            grid.innerHTML = '';
+
+            reviews.forEach((review, index) => {
+                const reviewCard = document.createElement('div');
+                reviewCard.className = 'review-card';
+                reviewCard.style.animationDelay = `${(index + 1) * 0.1}s`;
+
+                const stars = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
+                
+                reviewCard.innerHTML = `
+                    <div class="review-header">
+                        <div class="reviewer-avatar">${review.avatar}</div>
+                        <div class="reviewer-info">
+                            <h4>${review.name}</h4>
+                            <p>${review.position}</p>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        ${Array.from({length: 5}, (_, i) => 
+                            `<i class="fas fa-star star" style="color: ${i < review.rating ? '#ffd700' : '#ddd'}"></i>`
+                        ).join('')}
+                    </div>
+                    <p class="review-text">"${review.text}"</p>
+                    <div class="review-date">${review.date}</div>
+                `;
+
+                grid.appendChild(reviewCard);
+            });
+        }
+
+        // Form submission
+        document.getElementById('reviewForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const message = formData.get('message');
+            const rating = parseInt(formData.get('rating'));
+            const name = formData.get('name') || 'Anonymous';
+            const email = formData.get('email') || 'No email provided';
+            
+            // Create new review object
+            const newReview = {
+                id: reviews.length + 1,
+                name: name,
+                position: "Guest",
+                avatar: name.charAt(0).toUpperCase() + (name.split(' ')[1] ? name.split(' ')[1].charAt(0).toUpperCase() : ''),
+                rating: rating,
+                text: message,
+                date: new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
+            };
+
+            // Add to reviews array
+            reviews.unshift(newReview);
+            
+            // Update display
+            displayReviews();
+            
+            // Save to localStorage (as fallback)
+            localStorage.setItem('portfolioReviews', JSON.stringify(reviews));
+            
+            // Reset form
+            this.reset();
+            
+            // Show success message
+            alert('Thank you for your review! It has been added to the page.');
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all review cards
+        document.querySelectorAll('.review-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Load reviews when page loads
+        loadReviews();
+
+        // Function to download reviews as JSON (for admin use)
+        function downloadReviewsJSON() {
+            const dataStr = JSON.stringify({ reviews: reviews }, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'reviews.json';
+            link.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // Add download button for admin (you can hide this in production)
+        const downloadBtn = document.createElement('button');
+        downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download Reviews JSON';
+        downloadBtn.className = 'submit-btn';
+        downloadBtn.style.marginTop = '1rem';
+        downloadBtn.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
+        downloadBtn.onclick = downloadReviewsJSON;
+        
+        document.querySelector('.review-form-section').appendChild(downloadBtn);
+    </script>
+</body>
+</html>

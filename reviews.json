@@ -1,0 +1,58 @@
+{
+  "reviews": [
+    {
+      "id": 1,
+      "name": "Alex Smith",
+      "position": "Senior Developer at TechCorp",
+      "avatar": "AS",
+      "rating": 5,
+      "text": "Vlad is an exceptional developer with strong problem-solving skills. His work on our logistics platform was outstanding - clean code, great documentation, and always delivered on time.",
+      "date": "December 2024"
+    },
+    {
+      "id": 2,
+      "name": "Maria Kovalenko",
+      "position": "Project Manager at iCORN",
+      "avatar": "MK",
+      "rating": 5,
+      "text": "Working with Vlad on the grain trading platform was a pleasure. He quickly understood complex business requirements and implemented elegant solutions. Highly recommend!",
+      "date": "January 2025"
+    },
+    {
+      "id": 3,
+      "name": "Dmytro Petrenko",
+      "position": "CTO at StartupHub",
+      "avatar": "DP",
+      "rating": 5,
+      "text": "Vlad's technical expertise and attention to detail are impressive. He helped us build a robust warehouse management system that exceeded our expectations.",
+      "date": "February 2025"
+    },
+    {
+      "id": 4,
+      "name": "Olena Lysenko",
+      "position": "Product Owner at FinTech",
+      "avatar": "OL",
+      "rating": 5,
+      "text": "Vlad's ability to translate business requirements into technical solutions is remarkable. His work on our document signing system was flawless and secure.",
+      "date": "March 2025"
+    },
+    {
+      "id": 5,
+      "name": "Viktor Shevchenko",
+      "position": "Team Lead at DevStudio",
+      "avatar": "VS",
+      "rating": 5,
+      "text": "Vlad is a team player who always goes above and beyond. His code quality and communication skills make him an asset to any development team.",
+      "date": "March 2025"
+    },
+    {
+      "id": 6,
+      "name": "Iryna Koval",
+      "position": "CEO at AgriTech",
+      "avatar": "IK",
+      "rating": 5,
+      "text": "Vlad delivered our Telegram bot for drivers ahead of schedule. His understanding of agricultural logistics and technical skills are exceptional.",
+      "date": "April 2025"
+    }
+  ]
+}

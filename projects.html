@@ -7,6 +7,7 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
@@ -20,7 +21,22 @@
             color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            margin: 0;
+            padding: 0;
         }
+
+        /* Prevent FOUC and navbar jumping */
+        .projects-section {
+            opacity: 1;
+        }
+
+
+
+
+
+
+
+
 
         /* Navigation */
         nav {
@@ -33,6 +49,10 @@
             right: 0;
             z-index: 1000;
             transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: -13.5px;
         }
 
         nav.scrolled {
@@ -45,26 +65,23 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 1.5rem;
-            max-width: 800px;
-            margin: 0 auto;
+            gap: 2rem;
             flex-wrap: wrap;
+            margin: 0;
+            padding: 0;
         }
 
         nav a {
             color: white;
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.9rem;
-            padding: 0.4rem 0.8rem;
-            border-radius: 8px;
+            font-size: 0.95rem;
             transition: all 0.3s ease;
             position: relative;
         }
 
         nav a:hover {
             color: #f0f0f0;
-            background: rgba(255, 255, 255, 0.1);
             transform: translateY(-2px);
         }
 
@@ -83,9 +100,26 @@
             width: 100%;
         }
 
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            nav {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul {
+                gap: 1rem;
+            }
+        }
+
         /* Main Content */
         .projects-section {
-            padding: 8rem 2rem 4rem;
+            padding: 120px 2rem 4rem;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -93,7 +127,6 @@
         .section-header {
             text-align: center;
             margin-bottom: 3rem;
-            animation: slideUp 0.8s ease-out;
         }
 
         .section-header h1 {
@@ -125,15 +158,11 @@
             padding: 2rem;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
-            animation: slideUp 0.8s ease-out;
             overflow: hidden;
             position: relative;
         }
 
-        .project-card:nth-child(1) { animation-delay: 0.1s; }
-        .project-card:nth-child(2) { animation-delay: 0.2s; }
-        .project-card:nth-child(3) { animation-delay: 0.3s; }
-        .project-card:nth-child(4) { animation-delay: 0.4s; }
+
 
         .project-card:hover {
             transform: translateY(-10px);
@@ -186,14 +215,17 @@
         }
 
         .project-content {
-            display: none;
+            max-height: 0;
+            overflow: hidden;
             opacity: 0;
             transform: translateY(-10px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
+            transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+                        opacity 0.4s ease, 
+                        transform 0.4s ease;
         }
 
         .project-content.show {
-            display: block;
+            max-height: 2000px;
             opacity: 1;
             transform: translateY(0);
         }
@@ -390,6 +422,8 @@
     </style>
 </head>
 <body>
+
+
     <nav>
         <ul>
             <li><a href="index.html">About me</a></li>
@@ -397,6 +431,7 @@
             <li><a href="work_ex.html">Work Experience</a></li>
             <li><a href="skills.html">Skills</a></li>
             <li><a href="education.html">Education</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
         </ul>
     </nav>
 
@@ -556,6 +591,8 @@
             });
         });
 
+
+
         // Navbar background on scroll
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
@@ -577,18 +614,7 @@
             });
         });
 
-        // Auto-open the first project card on page load
-        window.addEventListener('load', () => {
-            const firstCard = document.querySelector('.project-card');
-            if (firstCard) {
-                const firstContent = firstCard.querySelector('.project-content');
-                const firstChevron = firstCard.querySelector('.toggle-icon');
-                firstContent.classList.add('show');
-                firstChevron.innerHTML = '<i class="fas fa-chevron-up"></i>';
-                firstCard.classList.add('active');
-            }
-        });
+
     </script>
 </body>
-</html>
 </html>
