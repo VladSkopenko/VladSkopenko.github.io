@@ -319,6 +319,71 @@
             box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
         }
 
+        /* Notifications */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+            max-width: 400px;
+            animation: slideInRight 0.3s ease-out;
+        }
+
+        .notification-content {
+            background: white;
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .notification-success {
+            border-left: 4px solid #28a745;
+        }
+
+        .notification-error {
+            border-left: 4px solid #dc3545;
+        }
+
+        .notification-info {
+            border-left: 4px solid #17a2b8;
+        }
+
+        .notification-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+        }
+
+        .notification-close:hover {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .section-header h1 {
@@ -401,7 +466,7 @@
                 <p>Share your experience working with me or just say hello!</p>
             </div>
 
-            <form id="reviewForm" action="mailto:vladskopenko@gmail.com" method="post" enctype="text/plain">
+            <form id="reviewForm">
                 <div class="form-group">
                     <label for="name">Name (Optional)</label>
                     <input type="text" id="name" name="name" placeholder="Your name">
@@ -534,32 +599,98 @@
             const name = formData.get('name') || 'Anonymous';
             const email = formData.get('email') || 'No email provided';
             
-            // Create new review object
-            const newReview = {
-                id: reviews.length + 1,
-                name: name,
-                position: "Guest",
-                avatar: name.charAt(0).toUpperCase() + (name.split(' ')[1] ? name.split(' ')[1].charAt(0).toUpperCase() : ''),
-                rating: rating,
-                text: message,
-                date: new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
-            };
+            // Create GitHub Issue content
+            const issueTitle = `Review from ${name}`;
+            const issueBody = `**Name:** ${name}
+**Email:** ${email}
+**Rating:** ${rating}
+**Review:** ${message}
 
-            // Add to reviews array
-            reviews.unshift(newReview);
-            
-            // Update display
-            displayReviews();
-            
-            // Save to localStorage (as fallback)
-            localStorage.setItem('portfolioReviews', JSON.stringify(reviews));
-            
-            // Reset form
-            this.reset();
-            
-            // Show success message
-            alert('Thank you for your review! It has been added to the page.');
+---
+*This review was submitted through the website form and will be automatically added to the reviews.json file.*`;
+
+            // Create GitHub Issue
+            createGitHubIssue(issueTitle, issueBody, rating, message, name);
         });
+
+        // Function to create GitHub Issue
+        async function createGitHubIssue(title, body, rating, message, name) {
+            try {
+                // Show loading state
+                const submitBtn = document.querySelector('.submit-btn');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+                submitBtn.disabled = true;
+
+                // Create issue using GitHub API
+                const response = await fetch(`https://api.github.com/repos/VladSkopenko/VladSkopenko.github.io/issues`, {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/vnd.github.v3+json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        title: title,
+                        body: body,
+                        labels: ['review', 'website-submission']
+                    })
+                });
+
+                if (response.ok) {
+                    // Show success message
+                    showNotification('✅ Review submitted successfully! It will appear on the website shortly.', 'success');
+                    
+                    // Reset form
+                    document.getElementById('reviewForm').reset();
+                    
+                    // Add to local display immediately (temporary)
+                    const newReview = {
+                        id: reviews.length + 1,
+                        name: name,
+                        position: "Guest",
+                        avatar: name.charAt(0).toUpperCase() + (name.split(' ')[1] ? name.split(' ')[1].charAt(0).toUpperCase() : ''),
+                        rating: rating,
+                        text: message,
+                        date: new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
+                    };
+                    
+                    reviews.unshift(newReview);
+                    displayReviews();
+                    localStorage.setItem('portfolioReviews', JSON.stringify(reviews));
+                } else {
+                    throw new Error(`GitHub API error: ${response.status}`);
+                }
+            } catch (error) {
+                console.error('Error creating issue:', error);
+                showNotification('❌ Failed to submit review. Please try again later.', 'error');
+            } finally {
+                // Restore button state
+                const submitBtn = document.querySelector('.submit-btn');
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        }
+
+        // Function to show notifications
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <span>${message}</span>
+                    <button onclick="this.parentElement.parentElement.remove()" class="notification-close">×</button>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
 
         // Intersection Observer for animations
         const observerOptions = {
