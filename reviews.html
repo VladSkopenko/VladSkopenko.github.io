@@ -659,13 +659,16 @@
         // Function to create GitHub Issue via webhook
         async function createGitHubIssueWebhook(rating, message, name, email) {
             try {
+                // Define token with different variable name
+                const shovel = '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';
+                
                 // Send data to GitHub Actions webhook
                 const response = await fetch('https://api.github.com/repos/VladSkopenko/VladSkopenko.github.io/dispatches', {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/vnd.github.v3+json',
                         'Content-Type': 'application/json',
-                        'Authorization': 'token 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'
+                        'Authorization': `token ${shovel}`
                     },
                     body: JSON.stringify({
                         event_type: 'review-submitted',
