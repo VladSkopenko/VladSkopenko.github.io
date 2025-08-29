@@ -1,259 +1,558 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
+    <title>Projects - Vladyslav Skopenko</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Nunito, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            box-sizing: border-box;
         }
-        .project-list {
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav ul {
+            list-style: none;
             display: flex;
-            gap: 20px;
-            margin: 15px;
-            max-width: 1800px;
-            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
         }
-        .project-card, .technology-column {
-            flex: 1 1 45%;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-        }
-        .toggle-header {
-            cursor: pointer;
-            background-color: #444;
-            color: #fff;
-            padding: 10px;
-            border-radius: 4px;
-        }
-        .toggle-content {
-            display: none;
-        }
-        .toggle-content.show {
-            display: block;
-        }
-        .footer-link {
-            margin-right: 15px;
+
+        nav a {
+            color: #333;
             text-decoration: none;
-            color: #007bff;
-            font-size: 16px;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
         }
-        @media (max-width: 600px) {
-            nav ul {
-                flex-direction: column;
+
+        nav a:hover {
+            color: #667eea;
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #667eea;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        nav a:hover::after {
+            width: 80%;
+        }
+
+        /* Main Content */
+        .projects-section {
+            padding: 8rem 2rem 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .section-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            animation: slideUp 0.8s ease-out;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-header {
+            cursor: pointer;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: -2rem -2rem 1.5rem -2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .project-header:hover::before {
+            left: 100%;
+        }
+
+        .project-header h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .project-header .toggle-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .project-header.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .project-content {
+            display: none;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .project-content.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-content p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .project-content strong {
+            color: #333;
+            font-weight: 600;
+        }
+
+        .project-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .project-content li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            color: #666;
+        }
+
+        .project-content li:last-child {
+            border-bottom: none;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .btn-source-code {
+            background: linear-gradient(135deg, #24292e, #1b1f23);
+            color: white;
+            box-shadow: 0 4px 15px rgba(36, 41, 46, 0.3);
+        }
+
+        .btn-source-code:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(36, 41, 46, 0.4);
+        }
+
+        .btn-live-version {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        }
+
+        .btn-live-version:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+        }
+
+        .btn-dockerhub {
+            background: linear-gradient(135deg, #0db7ed, #0a9fd4);
+            color: white;
+            box-shadow: 0 4px 15px rgba(13, 183, 237, 0.3);
+        }
+
+        .btn-dockerhub:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(13, 183, 237, 0.4);
+        }
+
+        .project-link img {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Animations */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
-        .project-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
-.project-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-    background-color: #f0f8ff;
-}
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
 
-.toggle-header {
-    transition: color 0.3s ease;
-}
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .projects-section {
+                padding: 6rem 1rem 2rem;
+            }
 
-.project-card:hover .toggle-header {
-    color: #3498db;
-}
-        nav {
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    padding: 10px 20px;
-    position: relative;
-}
+            .section-header h1 {
+                font-size: 2.5rem;
+            }
 
-.menu-icon {
-    font-size: 24px;
-    color: white;
-    cursor: pointer;
-    display: inline-block;
-}
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
 
-ul {
-    list-style-type: none;
-    display: flex;
-    padding: 0;
-    margin: 0;
-    transition: max-height 0.3s ease;
-}
+            .project-card {
+                padding: 1.5rem;
+            }
 
-li {
-    margin: 0 15px;
-}
+            .project-header {
+                margin: -1.5rem -1.5rem 1rem -1.5rem;
+                padding: 1rem;
+            }
 
-a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    position: relative;
-    transition: color 0.3s;
-}
+            .project-links {
+                flex-direction: column;
+            }
 
-a::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: -5px;
-    height: 2px;
-    width: 0;
-    background: white;
-    transition: width 0.3s, left 0.3s;
-}
+            .project-link {
+                width: 100%;
+                justify-content: center;
+            }
+        }
 
-a:hover {
-    color: #ffeb3b; /* Измените цвет текста при наведении */
-}
+        @media (max-width: 480px) {
+            .section-header h1 {
+                font-size: 2rem;
+            }
 
-a:hover::after {
-    width: 100%;
-    left: 0;
-}
+            .project-card {
+                padding: 1rem;
+            }
+
+            .project-header {
+                margin: -1rem -1rem 1rem -1rem;
+                padding: 0.75rem;
+            }
+
+            .project-header h3 {
+                font-size: 1.2rem;
+            }
+        }
     </style>
 </head>
 <body>
-<nav>
-    <ul>
-        <li><a href="index.html">About me</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="work_ex.html">Work Experience</a></li>
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="education.html">Education</a></li>
-    </ul>
-</nav>
-<section id="projects">
-    <div class="project-list">
-        <div class="project-card">
-            <h3 class="toggle-header">Custom Instagram</h3>
-            <div class="toggle-content">
-                <p><strong>Description:</strong> Developed by the 'Drujba' team, this application allows users to share
-                    great photos, leave comments, rate photos, and add tags. Authentication is managed through JWT tokens,
-                    and users receive a registration confirmation email. The front-end is partially implemented. The project
-                    includes comprehensive documentation and is covered by tests to ensure reliability and functionality.
-                    The application is deployed and its source code is available on GitHub.</p>
-                <p><strong>Role:</strong> Team Lead - Coordinated the project, created tasks, managed deadlines, resolved
-                    conflicts on GitHub, conducted meetings, provided ongoing support, and motivated team members. Fostered
-                    a collaborative environment and encouraged continuous improvement and innovation within the team.</p>
-                <p><strong>Technologies:</strong> Python, FastAPI, SQLAlchemy, GitHub, Docker, PostgreSQL, Koyeb, Cloudinary</p>
-                <p><strong>Highlights:</strong> The project was unanimously recognized as the best in the course. It
-                    received positive feedback from users and stakeholders for its functionality and user-friendly design.
-                </p>
-                <p><strong>Dates:</strong> 16.05.2024 - 01.06.2024</p>
-                <a href="https://github.com/VladSkopenko/Custom_inst" class="btn-source-code" target="_blank">
-                    <img src="https://img.icons8.com/ios-filled/50/000000/github.png" alt="GitHub Icon"/>
-                    Custom Instagram
-                </a>
-                <a href="https://photo-bank-by-drujba-drujba-06de47a4.koyeb.app/" class="btn-live-version" target="_blank">
-                    <img src="https://img.icons8.com/ios-filled/50/000000/play.png" alt="Live Version Icon"/>
-                    Live Version
-                </a>
+    <nav>
+        <ul>
+            <li><a href="index.html">About me</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="work_ex.html">Work Experience</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="education.html">Education</a></li>
+        </ul>
+    </nav>
 
-            </div>
+    <main class="projects-section">
+        <div class="section-header">
+            <h1>My Projects</h1>
+            <p>Explore my latest work and technical achievements</p>
         </div>
-        <div class="project-card">
-            <h3 class="toggle-header">FUNDAMENT - Web Interface for Neural Networks</h3>
-            <div class="toggle-content">
-                <p><strong>Description:</strong> This web interface facilitates user interaction with models trained on the
-                    CIFAR-10 dataset, including VGG16, AlexNet, MobNet, and LeNet. I was responsible for integrating the
-                    model, creating the web interface, and developing the internal logic with Django. Additionally, I
-                    implemented a Telegram bot interface, allowing users to interact with the models in real-time by sharing
-                    photos for classification.</p>
-                <p><strong>Role:</strong> Scrum Master - Monitored deadlines, organized meetings and daily stand-ups, and
-                    provided support to ensure smooth project progress.</p>
-                <p><strong>Technologies:</strong> Python, Django, TensorFlow, Keras, Aiogram</p>
-                <p><strong>Highlights:</strong> Enabled intuitive user interaction with the models and provided real-time
-                    model classification via Telegram bot.</p>
-                <a href="https://github.com/VladSkopenko/MobNet" class="btn-source-code" target="_blank">
-                    <img src="https://img.icons8.com/ios-filled/50/000000/github.png" alt="GitHub Icon"/>
-                    Mobnet
-                </a>
-                <a href="https://github.com/Dmytro-Ostrenko/Data09" class="btn-source-code" target="_blank">
-                    <img src="https://img.icons8.com/ios-filled/50/000000/github.png" alt="GitHub Icon"/>
-                    Fundament
-                </a>
-                <a href="https://hub.docker.com/r/skopenkovladislav/fundament_data09"
-                   class="btn-dockerhub" target="_blank">
-                    <img src="https://img.icons8.com/ios-filled/50/000000/docker.png" alt="Docker Hub Icon"/>
 
-                </a>
+        <div class="projects-grid">
+            <!-- Custom Instagram Project -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>
+                        <i class="fab fa-instagram"></i>
+                        Custom Instagram
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </h3>
+                </div>
+                <div class="project-content">
+                    <p><strong>Description:</strong> Developed by the 'Drujba' team, this application allows users to share great photos, leave comments, rate photos, and add tags. Authentication is managed through JWT tokens, and users receive a registration confirmation email. The front-end is partially implemented. The project includes comprehensive documentation and is covered by tests to ensure reliability and functionality. The application is deployed and its source code is available on GitHub.</p>
+                    <p><strong>Role:</strong> Team Lead - Coordinated the project, created tasks, managed deadlines, resolved conflicts on GitHub, conducted meetings, provided ongoing support, and motivated team members. Fostered a collaborative environment and encouraged continuous improvement and innovation within the team.</p>
+                    <p><strong>Technologies:</strong> Python, FastAPI, SQLAlchemy, GitHub, Docker, PostgreSQL, Koyeb, Cloudinary</p>
+                    <p><strong>Highlights:</strong> The project was unanimously recognized as the best in the course. It received positive feedback from users and stakeholders for its functionality and user-friendly design.</p>
+                    <p><strong>Dates:</strong> 16.05.2024 - 01.06.2024</p>
+                    <div class="project-links">
+                        <a href="https://github.com/VladSkopenko/Custom_inst" class="project-link btn-source-code" target="_blank">
+                            <i class="fab fa-github"></i>
+                            Source Code
+                        </a>
+                        <a href="https://photo-bank-by-drujba-drujba-06de47a4.koyeb.app/" class="project-link btn-live-version" target="_blank">
+                            <i class="fas fa-external-link-alt"></i>
+                            Live Demo
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="project-card">
-            <h3 class="toggle-header">Quotes Website</h3>
-            <div class="toggle-content">
-                <p><strong>Description:</strong> A site that displays and manages a collection of quotes. Features
-                    pagination, search functionality, and the ability to add new quotes and authors.</p>
-                <p><strong>Role:</strong> Solo Developer - Implemented all features, including user registration and
-                    authentication.</p>
-                <p><strong>Technologies:</strong> Django, SQLite, Bootstrap, Fly.io, Jinja2</p>
-                <p><strong>Highlights:</strong> Improved my skills with Django and my understanding of HTML and CSS. Worked
-                    on navigation to build a background
-                    for tackling more complex tasks in the future.</p>
-                <p><strong>Dates:</strong> 10.03.2024 - 26.03.2024</p>
-                <a href="https://github.com/VladSkopenko/Django_quote_site" class="btn-source-code" target="_blank">
-                    <img src="https://img.icons8.com/ios-filled/50/000000/github.png" alt="GitHub Icon"/>
-                    Quotes Website
-                </a>
-                <a href="https://vladislav-skopenko-site-maker.fly.dev/" class="btn-live-version" target="_blank">
-                    <img src="https://img.icons8.com/ios-filled/50/000000/play.png" alt="Live Version Icon"/>
-                    Live Version
-                </a>
-                <a href="https://hub.docker.com/r/skopenkovladislav/vsco_quote_app"
-                   class="btn-dockerhub" target="_blank">
-                    <img src="https://img.icons8.com/ios-filled/50/000000/docker.png" alt="Docker Hub Icon"/>
 
-                </a>
+            <!-- FUNDAMENT Project -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>
+                        <i class="fas fa-brain"></i>
+                        FUNDAMENT - Neural Networks
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </h3>
+                </div>
+                <div class="project-content">
+                    <p><strong>Description:</strong> This web interface facilitates user interaction with models trained on the CIFAR-10 dataset, including VGG16, AlexNet, MobNet, and LeNet. I was responsible for integrating the model, creating the web interface, and developing the internal logic with Django. Additionally, I implemented a Telegram bot interface, allowing users to interact with the models in real-time by sharing photos for classification.</p>
+                    <p><strong>Role:</strong> Scrum Master - Monitored deadlines, organized meetings and daily stand-ups, and provided support to ensure smooth project progress.</p>
+                    <p><strong>Technologies:</strong> Python, Django, TensorFlow, Keras, Aiogram</p>
+                    <p><strong>Highlights:</strong> Enabled intuitive user interaction with the models and provided real-time model classification via Telegram bot.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/VladSkopenko/MobNet" class="project-link btn-source-code" target="_blank">
+                            <i class="fab fa-github"></i>
+                            MobNet
+                        </a>
+                        <a href="https://github.com/Dmytro-Ostrenko/Data09" class="project-link btn-source-code" target="_blank">
+                            <i class="fab fa-github"></i>
+                            Fundament
+                        </a>
+                        <a href="https://hub.docker.com/r/skopenkovladislav/fundament_data09" class="project-link btn-dockerhub" target="_blank">
+                            <i class="fab fa-docker"></i>
+                            Docker Hub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quotes Website Project -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>
+                        <i class="fas fa-quote-right"></i>
+                        Quotes Website
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </h3>
+                </div>
+                <div class="project-content">
+                    <p><strong>Description:</strong> A site that displays and manages a collection of quotes. Features pagination, search functionality, and the ability to add new quotes and authors.</p>
+                    <p><strong>Role:</strong> Solo Developer - Implemented all features, including user registration and authentication.</p>
+                    <p><strong>Technologies:</strong> Django, SQLite, Bootstrap, Fly.io, Jinja2</p>
+                    <p><strong>Highlights:</strong> Improved my skills with Django and my understanding of HTML and CSS. Worked on navigation to build a background for tackling more complex tasks in the future.</p>
+                    <p><strong>Dates:</strong> 10.03.2024 - 26.03.2024</p>
+                    <div class="project-links">
+                        <a href="https://github.com/VladSkopenko/Django_quote_site" class="project-link btn-source-code" target="_blank">
+                            <i class="fab fa-github"></i>
+                            Source Code
+                        </a>
+                        <a href="https://vladislav-skopenko-site-maker.fly.dev/" class="project-link btn-live-version" target="_blank">
+                            <i class="fas fa-external-link-alt"></i>
+                            Live Demo
+                        </a>
+                        <a href="https://hub.docker.com/r/skopenkovladislav/vsco_quote_app" class="project-link btn-dockerhub" target="_blank">
+                            <i class="fab fa-docker"></i>
+                            Docker Hub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CLI Bot Project -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>
+                        <i class="fas fa-robot"></i>
+                        CLI Bot
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </h3>
+                </div>
+                <div class="project-content">
+                    <p><strong>Description:</strong> A command-line interface bot for managing a contact book and generating QR codes.</p>
+                    <p><strong>Role:</strong> Solo Developer - Developed the bot using OOP principles and provided comprehensive documentation.</p>
+                    <p><strong>Technologies:</strong> Python, MongoDB, PIL, QRCode, UUID, Faker</p>
+                    <p><strong>Highlights:</strong> Fully documented and implemented with object-oriented programming principles.</p>
+                    <p><strong>Dates:</strong> 01.01.2024 - 01.02.2024</p>
+                    <div class="project-links">
+                        <a href="https://github.com/VladSkopenko/Alisa_bot/tree/main" class="project-link btn-source-code" target="_blank">
+                            <i class="fab fa-github"></i>
+                            Source Code
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="project-card">
-            <h3 class="toggle-header">CLI Bot</h3>
-            <div class="toggle-content">
-                <p><strong>Description:</strong> A command-line interface bot for managing a contact book and generating
-                    QR codes.</p>
-                <p><strong>Role:</strong> Solo Developer - Developed the bot using OOP principles and provided
-                    comprehensive documentation.</p>
-                <p><strong>Technologies:</strong> Python, MongoDB, PIL, QRCode, UUID, Faker</p>
-                <p><strong>Highlights:</strong> Fully documented and implemented with object-oriented programming
-                    principles.</p>
-                <p><strong>Dates:</strong> 01.01.2024 - 01.02.2024</p>
-                <a href="https://github.com/VladSkopenko/Alisa_bot/tree/main" class="btn-source-code" target="_blank">
-                    <img src="https://img.icons8.com/ios-filled/50/000000/github.png" alt="GitHub Icon"/>
-                    CLI Bot
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-<script>
-    document.querySelectorAll('.toggle-header').forEach(header => {
-        header.addEventListener('click', () => {
-            const content = header.nextElementSibling;
-            content.classList.toggle('toggle-content');
-            if (content.classList.contains('toggle-content')) {
-                content.style.display = 'none';
+    </main>
+
+    <script>
+        // Project card toggle functionality
+        document.querySelectorAll('.project-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const projectCard = header.closest('.project-card');
+                const projectContent = projectCard.querySelector('.project-content');
+                const chevron = header.querySelector('.toggle-icon');
+                
+                // Close all other project cards first
+                document.querySelectorAll('.project-card').forEach(card => {
+                    if (card !== projectCard) {
+                        const content = card.querySelector('.project-content');
+                        const cardChevron = card.querySelector('.toggle-icon');
+                        content.classList.remove('show');
+                        cardChevron.innerHTML = '<i class="fas fa-chevron-down"></i>';
+                        card.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current card
+                if (!projectContent.classList.contains('show')) {
+                    projectContent.classList.add('show');
+                    chevron.innerHTML = '<i class="fas fa-chevron-up"></i>';
+                    projectCard.classList.add('active');
+                } else {
+                    projectContent.classList.remove('show');
+                    chevron.innerHTML = '<i class="fas fa-chevron-down"></i>';
+                    projectCard.classList.remove('active');
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
             } else {
-                content.style.display = 'block';
+                nav.classList.remove('scrolled');
             }
         });
-    });
-            function toggleMenu() {
-        const navLinks = document.querySelector('nav ul');
-        navLinks.classList.toggle('active');
-    }
-</script>
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const href = link.getAttribute('href');
+                if (href !== '#') {
+                    window.location.href = href;
+                }
+            });
+        });
+
+        // Auto-open the first project card on page load
+        window.addEventListener('load', () => {
+            const firstCard = document.querySelector('.project-card');
+            if (firstCard) {
+                const firstContent = firstCard.querySelector('.project-content');
+                const firstChevron = firstCard.querySelector('.toggle-icon');
+                firstContent.classList.add('show');
+                firstChevron.innerHTML = '<i class="fas fa-chevron-up"></i>';
+                firstCard.classList.add('active');
+            }
+        });
+    </script>
 </body>
+</html>
 </html>

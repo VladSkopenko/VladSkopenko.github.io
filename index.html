@@ -1,114 +1,390 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
+    <title>Vladyslav Skopenko - Python Developer</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-nav {
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    padding: 10px 20px;
-    position: relative;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.menu-icon {
-    font-size: 24px;
-    color: white;
-    cursor: pointer;
-    display: inline-block;
-}
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
 
-ul {
-    list-style-type: none;
-    display: flex;
-    padding: 0;
-    margin: 0;
-    transition: max-height 0.3s ease;
-}
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
 
-li {
-    margin: 0 15px;
-}
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    position: relative;
-    transition: color 0.3s;
-}
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
 
-a::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: -5px;
-    height: 2px;
-    width: 0;
-    background: white;
-    transition: width 0.3s, left 0.3s;
-}
+        nav a:hover {
+            color: #667eea;
+            background: rgba(102, 126, 234, 0.1);
+        }
 
-a:hover {
-    color: #ffeb3b; /* Измените цвет текста при наведении */
-}
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #667eea;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
 
-a:hover::after {
-    width: 100%;
-    left: 0;
-}
+        nav a:hover::after {
+            width: 80%;
+        }
 
+        /* Main Content */
+        .hero-section {
+            padding: 8rem 2rem 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #667eea;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-info h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .profile-info .title {
+            font-size: 1.2rem;
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .profile-info .location {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .about-content {
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.5rem;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        .about-content p:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .about-content p:nth-child(3) {
+            animation-delay: 0.7s;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            animation: slideUp 0.8s ease-out 0.5s both;
+        }
+
+        .contact-section h2 {
+            text-align: center;
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .contact-list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-list li {
+            margin: 0;
+        }
+
+        .contact-list a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .contact-list a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .contact-list a i {
+            font-size: 1.1rem;
+        }
+
+        .contact-list a.resume-btn {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        }
+
+        .contact-list a.resume-btn:hover {
+            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+        }
+
+        /* Animations */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 6rem 1rem 2rem;
+            }
+
+            .hero-card {
+                padding: 2rem;
+            }
+
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-info h1 {
+                font-size: 2rem;
+            }
+
+            .contact-list {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-list a {
+                width: 100%;
+                justify-content: center;
+                max-width: 300px;
+            }
+
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-card {
+                padding: 1.5rem;
+            }
+
+            .profile-photo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .profile-info h1 {
+                font-size: 1.8rem;
+            }
+
+            .about-content p {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
-<nav>
-    <ul>
-        <li><a href="index.html">About me</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="work_ex.html">Work Experience</a></li>
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="education.html">Education</a></li>
-    </ul>
-</nav>
-<section id="about">
-    <div class="container">
-        <div class="card">
-            <div class="photo-container">
-                <img src="1709744750716.jfif"
-                     alt="photo" style="width: 100px; border-radius: 50%; float: left; margin-right: 15px;">
-                <div class="name-overlay">Vladyslav Skopenko</div>
+    <nav>
+        <ul>
+            <li><a href="index.html">About me</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="work_ex.html">Work Experience</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="education.html">Education</a></li>
+        </ul>
+    </nav>
+
+    <main class="hero-section">
+        <div class="hero-card">
+            <div class="profile-header">
+                <img src="1709744750716.jfif" alt="Vladyslav Skopenko" class="profile-photo">
+                <div class="profile-info">
+                    <h1>Vladyslav Skopenko</h1>
+                    <div class="title">Python Developer</div>
+                    <div class="location">📍 Ukraine</div>
+                </div>
             </div>
-            <p>I specialize in Python development, creating web interfaces, and automating processes. Highly motivated
-                Python Developer with a set of skills in Web Development. Passionate about coding and professional
-                development. Quick learner, with analytical thinking and problem-solving skills. Responsible, proactive,
-                reliable, goal-oriented, and an adaptive team player.</p>
-            <p>During my studies, I gained experience as a Team Lead, where I coordinated team members, resolved Git
-                conflicts,
-                and assisted with challenging tasks. Additionally, I have experience as a Scrum Master, where I learned
-                to
-                manage deadlines and organize stand-ups effectively.</p>
-            <p>In addition to my main career, I have experience freelancing and actively participate in startups. These
-                opportunities have allowed me to work on diverse projects and enhance my skills in dynamic
-                environments.</p>
+            
+            <div class="about-content">
+                <p>
+                    I specialize in Python development, creating web interfaces, and automating processes. 
+                    Highly motivated Python Developer with a set of skills in Web Development. 
+                    Passionate about coding and professional development. Quick learner, with analytical 
+                    thinking and problem-solving skills. Responsible, proactive, reliable, goal-oriented, 
+                    and an adaptive team player.
+                </p>
+                <p>
+                    During my studies, I gained experience as a Team Lead, where I coordinated team members, 
+                    resolved Git conflicts, and assisted with challenging tasks. Additionally, I have experience 
+                    as a Scrum Master, where I learned to manage deadlines and organize stand-ups effectively.
+                </p>
+                <p>
+                    In addition to my main career, I have experience freelancing and actively participate in startups. 
+                    These opportunities have allowed me to work on diverse projects and enhance my skills in dynamic environments.
+                </p>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h2>Get In Touch</h2>
             <ul class="contact-list">
                 <li><a href="mailto:skopirka2k17@gmail.com"><i class="fas fa-envelope"></i> Email</a></li>
-                <li><a href="https://www.linkedin.com/in/vladyslav-skopenko/"><i class="fab fa-linkedin"></i>
-                    LinkedIn</a></li>
+                <li><a href="https://www.linkedin.com/in/vladyslav-skopenko/"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
                 <li><a href="https://t.me/Skopilk"><i class="fab fa-telegram-plane"></i> Telegram</a></li>
-                <li><a href="https://github.com/VladSkopenko"><i class="fab fa-github"></i> Github</a></li>
-                <li><a href="https://drive.google.com/uc?id=1jhk-bgGb07t9GizkHhL0BP9aNW9djt6H" download><i class="fas fa-file-download"></i>Download Resume</a></li>
+                <li><a href="https://github.com/VladSkopenko"><i class="fab fa-github"></i> GitHub</a></li>
+                <li><a href="https://drive.google.com/uc?id=1jhk-bgGb07t9GizkHhL0BP9aNW9djt6H" download class="resume-btn"><i class="fas fa-file-download"></i> Download Resume</a></li>
             </ul>
         </div>
-    </div>
-</section>
+    </main>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+                nav.style.boxShadow = '0 2px 30px rgba(0, 0, 0, 0.15)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
 </body>
-<script>
-    function toggleMenu() {
-        const navLinks = document.querySelector('nav ul');
-        navLinks.classList.toggle('active');
-    }
-</script>
 </html>
