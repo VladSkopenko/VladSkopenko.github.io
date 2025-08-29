@@ -24,7 +24,7 @@
 
         /* Navigation */
         nav {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             padding: 1rem 2rem;
             position: fixed;
@@ -32,8 +32,12 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         nav ul {
@@ -48,7 +52,7 @@
         }
 
         nav a {
-            color: #333;
+            color: white;
             text-decoration: none;
             font-weight: 500;
             font-size: 0.9rem;
@@ -59,24 +63,24 @@
         }
 
         nav a:hover {
-            color: #667eea;
-            background: rgba(102, 126, 234, 0.1);
+            color: #f0f0f0;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
         }
 
         nav a::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 50%;
+            bottom: -5px;
+            left: 0;
             width: 0;
             height: 2px;
-            background: #667eea;
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
+            background: white;
+            transition: width 0.3s ease;
         }
 
         nav a:hover::after {
-            width: 80%;
+            width: 100%;
         }
 
         /* Main Content */
