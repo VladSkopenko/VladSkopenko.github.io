@@ -1,0 +1,46 @@
+name: Create Review Issue
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Reviewer name'
+        required: true
+        type: string
+      email:
+        description: 'Reviewer email'
+        required: false
+        type: string
+      rating:
+        description: 'Rating (1-5)'
+        required: true
+        type: number
+      message:
+        description: 'Review message'
+        required: true
+        type: string
+
+jobs:
+  create-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Review Issue
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issue = await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Review from ${context.payload.inputs.name}`,
+              body: `**Name:** ${context.payload.inputs.name}
+**Email:** ${context.payload.inputs.email || 'No email provided'}
+**Rating:** ${context.payload.inputs.rating}
+**Review:** ${context.payload.inputs.message}
+
+---
+*This review was submitted through the website form and will be automatically added to the reviews.json file.*`,
+              labels: ['review', 'website-submission']
+            });
+            
+            console.log(`✅ Created issue #${issue.data.number}`);

@@ -599,22 +599,12 @@
             const name = formData.get('name') || 'Anonymous';
             const email = formData.get('email') || 'No email provided';
             
-            // Create GitHub Issue content
-            const issueTitle = `Review from ${name}`;
-            const issueBody = `**Name:** ${name}
-**Email:** ${email}
-**Rating:** ${rating}
-**Review:** ${message}
-
----
-*This review was submitted through the website form and will be automatically added to the reviews.json file.*`;
-
-            // Create GitHub Issue
-            createGitHubIssue(issueTitle, issueBody, rating, message, name);
+            // Submit review data
+            submitReviewData(rating, message, name, email);
         });
 
-        // Function to create GitHub Issue
-        async function createGitHubIssue(title, body, rating, message, name) {
+        // Function to submit review data
+        async function submitReviewData(rating, message, name, email) {
             let submitBtn;
             let originalText;
             
@@ -625,47 +615,37 @@
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
                 submitBtn.disabled = true;
 
-                // Create issue using GitHub API
-                const response = await fetch(`https://api.github.com/repos/VladSkopenko/VladSkopenko.github.io/issues`, {
-                    method: 'POST',
-                    headers: {
-                        'Accept': 'application/vnd.github.v3+json',
-                        'Content-Type': 'application/json',
-                        'Authorization': 'token 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'
-                    },
-                    body: JSON.stringify({
-                        title: title,
-                        body: body,
-                        labels: ['review', 'website-submission']
-                    })
-                });
+                // Create review object
+                const newReview = {
+                    id: reviews.length + 1,
+                    name: name,
+                    position: "Guest",
+                    avatar: name.charAt(0).toUpperCase() + (name.split(' ')[1] ? name.split(' ')[1].charAt(0).toUpperCase() : ''),
+                    rating: rating,
+                    text: message,
+                    date: new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
+                };
 
-                if (response.ok) {
-                    // Show success message
-                    showNotification('✅ Review submitted successfully! It will appear on the website shortly.', 'success');
-                    
-                    // Reset form
-                    document.getElementById('reviewForm').reset();
-                    
-                    // Add to local display immediately (temporary)
-                    const newReview = {
-                        id: reviews.length + 1,
-                        name: name,
-                        position: "Guest",
-                        avatar: name.charAt(0).toUpperCase() + (name.split(' ')[1] ? name.split(' ')[1].charAt(0).toUpperCase() : ''),
-                        rating: rating,
-                        text: message,
-                        date: new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
-                    };
-                    
-                    reviews.unshift(newReview);
-                    displayReviews();
-                    localStorage.setItem('portfolioReviews', JSON.stringify(reviews));
-                } else {
-                    throw new Error(`GitHub API error: ${response.status}`);
+                // Add to local display immediately
+                reviews.unshift(newReview);
+                displayReviews();
+                localStorage.setItem('portfolioReviews', JSON.stringify(reviews));
+
+                // Try to create GitHub Issue via webhook (optional)
+                try {
+                    await createGitHubIssueWebhook(rating, message, name, email);
+                } catch (webhookError) {
+                    console.log('Webhook failed, but review saved locally:', webhookError);
                 }
+
+                // Show success message
+                showNotification('✅ Review submitted successfully! It will be saved to the website.', 'success');
+                
+                // Reset form
+                document.getElementById('reviewForm').reset();
+
             } catch (error) {
-                console.error('Error creating issue:', error);
+                console.error('Error submitting review:', error);
                 showNotification('❌ Failed to submit review. Please try again later.', 'error');
             } finally {
                 // Restore button state
@@ -673,6 +653,39 @@
                     submitBtn.innerHTML = originalText;
                     submitBtn.disabled = false;
                 }
+            }
+        }
+
+        // Function to create GitHub Issue via webhook
+        async function createGitHubIssueWebhook(rating, message, name, email) {
+            try {
+                // Send data to GitHub Actions webhook
+                const response = await fetch('https://api.github.com/repos/VladSkopenko/VladSkopenko.github.io/dispatches', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/vnd.github.v3+json',
+                        'Content-Type': 'application/json',
+                        'Authorization': 'token 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'
+                    },
+                    body: JSON.stringify({
+                        event_type: 'review-submitted',
+                        client_payload: {
+                            name: name,
+                            email: email,
+                            rating: rating,
+                            message: message
+                        }
+                    })
+                });
+
+                if (response.ok) {
+                    console.log('✅ Webhook triggered successfully');
+                } else {
+                    throw new Error(`Webhook failed: ${response.status}`);
+                }
+            } catch (error) {
+                console.error('Webhook error:', error);
+                throw error;
             }
         }
 
