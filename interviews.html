@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interviews - Vlad Skopenko</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Main Content */
+        .interviews-section {
+            padding: 120px 2rem 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            color: white;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .section-header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Interviews Grid */
+        .interviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .interview-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .interview-card:nth-child(1) { animation-delay: 0.2s; }
+        .interview-card:nth-child(2) { animation-delay: 0.4s; }
+
+        .interview-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .interview-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .interview-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
+        }
+
+        .interview-info h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .interview-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .interview-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .interview-meta i {
+            color: #667eea;
+            width: 16px;
+        }
+
+        /* Video Container */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 15px;
+        }
+
+        .interview-description {
+            color: #555;
+            line-height: 1.7;
+            font-size: 1rem;
+            text-align: left;
+        }
+
+        .interview-description strong {
+            color: #333;
+            font-weight: 600;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .interviews-section {
+                padding: 100px 1rem 2rem;
+            }
+
+            .section-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .interviews-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .interview-card {
+                padding: 1.5rem;
+            }
+
+            .interview-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .interview-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .interview-info h3 {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .interviews-section {
+                padding: 80px 0.5rem 2rem;
+            }
+
+            .section-header h1 {
+                font-size: 2rem;
+            }
+
+            .interview-card {
+                padding: 1rem;
+            }
+
+            .interview-info h3 {
+                font-size: 1.2rem;
+            }
+
+            .interview-meta {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">About me</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="work_ex.html">Work Experience</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="interviews.html">Interviews</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+        </ul>
+    </nav>
+
+    <main class="interviews-section">
+        <div class="section-header">
+            <h1>Interviews</h1>
+            <p>Watch my interviews and learn more about my journey in technology and development</p>
+        </div>
+
+        <div class="interviews-grid">
+            <div class="interview-card">
+                <div class="interview-header">
+                    <div class="interview-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                                         <div class="interview-info">
+                         <h3>Hard Review</h3>
+                         <div class="interview-meta">
+                             <span><i class="fas fa-calendar-alt"></i> 2024</span>
+                             <span><i class="fas fa-clock"></i> Full Interview</span>
+                             <span><i class="fas fa-microphone"></i> Technology Discussion</span>
+                         </div>
+                     </div>
+                </div>
+                
+                <div class="video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/SxtQ8rhL4YI" 
+                        title="Interview #1 - Vlad Skopenko"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                
+                                 <div class="interview-description">
+                 </div>
+            </div>
+
+            <div class="interview-card">
+                <div class="interview-header">
+                    <div class="interview-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                                         <div class="interview-info">
+                         <h3>Soft Review</h3>
+                         <div class="interview-meta">
+                             <span><i class="fas fa-calendar-alt"></i> 2024</span>
+                             <span><i class="fas fa-clock"></i> Live Session</span>
+                             <span><i class="fas fa-users"></i> Q&A Session</span>
+                         </div>
+                     </div>
+                </div>
+                
+                <div class="video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/jFbK_pm6kuk" 
+                        title="Interview #2 - Vlad Skopenko"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                
+                                 <div class="interview-description">
+                 </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const href = link.getAttribute('href');
+                if (href !== '#') {
+                    window.location.href = href;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
