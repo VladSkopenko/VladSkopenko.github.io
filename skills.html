@@ -4,446 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skills - Vladyslav Skopenko</title>
-      <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-
-
-
-        /* Navigation */
-        nav {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled {
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        nav a:hover {
-            color: #f0f0f0;
-            transform: translateY(-2px);
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: white;
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            nav ul {
-                gap: 1.5rem;
-            }
-
-            nav {
-                padding: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            nav ul {
-                gap: 1rem;
-            }
-        }
-
-        /* Main Content */
-        .skills-section {
-            padding: 8rem 2rem 4rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-            animation: slideUp 0.8s ease-out;
-        }
-
-        .section-header h1 {
-            font-size: 3rem;
-            font-weight: 700;
-    color: white;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .section-header p {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Skills Categories */
-        .skills-categories {
-            display: grid;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .category {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            animation: slideUp 0.8s ease-out;
-            overflow: hidden;
-        }
-
-        .category:nth-child(1) { animation-delay: 0.1s; }
-        .category:nth-child(2) { animation-delay: 0.2s; }
-        .category:nth-child(3) { animation-delay: 0.3s; }
-        .category:nth-child(4) { animation-delay: 0.4s; }
-
-        .category-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid rgba(102, 126, 234, 0.2);
-        }
-
-        .category-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 12px;
-    display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        .category-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .category-subtitle {
-            font-size: 1rem;
-            color: #666;
-            font-weight: 400;
-        }
-
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .skill-card {
-            background: white;
-            border-radius: 15px;
-            padding: 1.5rem;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-    position: relative;
-            overflow: hidden;
-}
-
-        .skill-card::before {
-    content: '';
-    position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .skill-card:hover::before {
-            left: 100%;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-            border-color: #667eea;
-        }
-
-        .skill-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .skill-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-        }
-
-        .skill-name {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .skill-level {
-            margin-bottom: 1rem;
-        }
-
-        .skill-level-label {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .skill-level-text {
-            font-weight: 500;
-            color: #667eea;
-        }
-
-        .progress-bar {
-    width: 100%;
-            height: 8px;
-            background: #f0f0f0;
-            border-radius: 4px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 4px;
-            width: 0;
-            transition: width 1.5s ease-out;
-            position: relative;
-        }
-
-        .progress-fill::after {
-            content: '';
-            position: absolute;
-            top: 0;
-    left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            animation: shimmer 2s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-
-        .skill-description {
-            font-size: 0.9rem;
-            color: #666;
-            line-height: 1.5;
-        }
-
-        /* Soft Skills Special Styling */
-        .soft-skill-card {
-            background: linear-gradient(135deg, #f8f9ff, #f0f4ff);
-            border: 2px solid rgba(102, 126, 234, 0.2);
-        }
-
-        .soft-skill-card:hover {
-            border-color: #667eea;
-            background: linear-gradient(135deg, #f0f4ff, #e8f0ff);
-        }
-
-        .soft-skill-icon {
-            background: linear-gradient(135deg, #28a745, #20c997);
-        }
-
-        /* Animations */
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .skills-section {
-                padding: 6rem 1rem 2rem;
-            }
-
-            .section-header h1 {
-                font-size: 2.5rem;
-            }
-
-            .category {
-                padding: 1.5rem;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .skill-card {
-                padding: 1.25rem;
-            }
-
-            .category-header {
-                flex-direction: column;
-                text-align: center;
-                gap: 0.5rem;
-            }
-
-            .category-icon {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-            }
-
-            /* Tablet navigation fixes */
-            nav ul {
-                gap: 1rem;
-            }
-
-            nav {
-                padding: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .section-header h1 {
-                font-size: 2rem;
-            }
-
-            .category {
-                padding: 1rem;
-            }
-
-            .skill-card {
-                padding: 1rem;
-            }
-
-            .skill-header {
-                flex-direction: column;
-                text-align: center;
-                gap: 0.5rem;
-            }
-
-            .skill-icon {
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
-            }
-
-            /* Mobile navigation fixes */
-            nav ul {
-                gap: 0.8rem;
-            }
-
-            nav {
-                padding: 0.8rem;
-            }
-
-            nav a {
-                font-size: 0.9rem;
-            }
-}
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-
-        <nav>
-            <ul>
-                <li><a href="index.html">About me</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="work_ex.html">Work Experience</a></li>
-                <li><a href="skills.html">Skills</a></li>
-                <li><a href="education.html">Education</a></li>
-                <li><a href="reviews.html">Reviews</a></li>
-            </ul>
-        </nav>
+    <nav>
+        <ul>
+            <li><a href="index.html">About me</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="work_ex.html">Work Experience</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+        </ul>
+    </nav>
 
     <main class="skills-section">
         <div class="section-header">
@@ -472,15 +48,6 @@
                             </div>
                             <div class="skill-name">Python</div>
                         </div>
-                        <div class="skill-level">
-                            <div class="skill-level-label">
-                                <span>Expert Level</span>
-                                <span class="skill-level-text">95%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-width="95"></div>
-                            </div>
-                        </div>
                         <div class="skill-description">Advanced Python development with focus on web frameworks, automation, and data processing.</div>
                     </div>
 
@@ -490,15 +57,6 @@
                                 <i class="fas fa-cloud"></i>
                             </div>
                             <div class="skill-name">FastAPI</div>
-                        </div>
-                        <div class="skill-level">
-                            <div class="skill-level-label">
-                                <span>Advanced</span>
-                                <span class="skill-level-text">90%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-width="90"></div>
-                            </div>
                         </div>
                         <div class="skill-description">Building high-performance APIs with modern Python web framework.</div>
                     </div>
@@ -510,15 +68,6 @@
                             </div>
                             <div class="skill-name">Django</div>
                         </div>
-                        <div class="skill-level">
-                            <div class="skill-level-label">
-                                <span>Advanced</span>
-                                <span class="skill-level-text">85%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-width="85"></div>
-                            </div>
-                        </div>
                         <div class="skill-description">Full-stack web development with Django framework and ORM.</div>
                     </div>
 
@@ -528,15 +77,6 @@
                                 <i class="fas fa-code"></i>
                             </div>
                             <div class="skill-name">Asyncio</div>
-                        </div>
-                        <div class="skill-level">
-                            <div class="skill-level-label">
-                                <span>Advanced</span>
-                                <span class="skill-level-text">88%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-width="88"></div>
-                            </div>
                         </div>
                         <div class="skill-description">Asynchronous programming for high-performance applications.</div>
                     </div>
@@ -563,15 +103,6 @@
                             </div>
                             <div class="skill-name">PostgreSQL</div>
                         </div>
-                        <div class="skill-level">
-                            <div class="skill-level-label">
-                                <span>Advanced</span>
-                                <span class="skill-level-text">92%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-width="92"></div>
-                            </div>
-                        </div>
                         <div class="skill-description">Complex database design, optimization, and advanced SQL queries.</div>
                     </div>
 
@@ -581,15 +112,6 @@
                                 <i class="fas fa-database"></i>
                             </div>
                             <div class="skill-name">SQLAlchemy</div>
-                        </div>
-                        <div class="skill-level">
-                            <div class="skill-level-label">
-                                <span>Advanced</span>
-                                <span class="skill-level-text">90%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-width="90"></div>
-                            </div>
                         </div>
                         <div class="skill-description">ORM development, migrations, and complex database operations.</div>
                     </div>
@@ -601,15 +123,6 @@
                             </div>
                             <div class="skill-name">MongoDB</div>
                         </div>
-                        <div class="skill-level">
-                            <div class="skill-level-label">
-                                <span>Intermediate</span>
-                                <span class="skill-level-text">75%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-width="75"></div>
-                            </div>
-                        </div>
                         <div class="skill-description">NoSQL database operations and document-based data modeling.</div>
                     </div>
 
@@ -620,16 +133,17 @@
                             </div>
                             <div class="skill-name">Redis</div>
                         </div>
-                        <div class="skill-level">
-                            <div class="skill-level-label">
-                                <span>Intermediate</span>
-                                <span class="skill-level-text">80%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-width="80"></div>
-                            </div>
-                        </div>
                         <div class="skill-description">Caching, session management, and in-memory data operations.</div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <div class="skill-name">MongoDB Atlas</div>
+                        </div>
+                        <div class="skill-description">Cloud-hosted MongoDB database management and deployment.</div>
                     </div>
                 </div>
             </div>
@@ -654,15 +168,6 @@
                             </div>
                             <div class="skill-name">Docker</div>
                         </div>
-                        <div class="skill-level">
-                            <div class="skill-level-label">
-                                <span>Advanced</span>
-                                <span class="skill-level-text">88%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-width="88"></div>
-                            </div>
-                        </div>
                         <div class="skill-description">Containerization, multi-stage builds, and Docker Compose orchestration.</div>
                     </div>
 
@@ -672,15 +177,6 @@
                                 <i class="fab fa-git-alt"></i>
                             </div>
                             <div class="skill-name">Git & GitHub</div>
-                        </div>
-                        <div class="skill-level">
-                            <div class="skill-level-label">
-                                <span>Expert</span>
-                                <span class="skill-level-text">95%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-width="95"></div>
-                            </div>
                         </div>
                         <div class="skill-description">Version control, branching strategies, and collaborative development.</div>
                     </div>
@@ -692,15 +188,6 @@
                             </div>
                             <div class="skill-name">Cloud Deployment</div>
                         </div>
-                        <div class="skill-level">
-                            <div class="skill-level-label">
-                                <span>Advanced</span>
-                                <span class="skill-level-text">85%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-width="85"></div>
-                            </div>
-                        </div>
                         <div class="skill-description">DigitalOcean, Koyeb, Fly.io deployment and CI/CD pipelines.</div>
                     </div>
 
@@ -711,16 +198,77 @@
                             </div>
                             <div class="skill-name">Testing</div>
                         </div>
-                        <div class="skill-level">
-                            <div class="skill-level-label">
-                                <span>Intermediate</span>
-                                <span class="skill-level-text">78%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-width="78"></div>
-                            </div>
-                        </div>
                         <div class="skill-description">Unit testing, pytest, and test-driven development practices.</div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <i class="fab fa-figma"></i>
+                            </div>
+                            <div class="skill-name">Figma</div>
+                        </div>
+                        <div class="skill-description">UI/UX design, prototyping, and collaborative design workflows.</div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <i class="fab fa-slack"></i>
+                            </div>
+                            <div class="skill-name">Slack</div>
+                        </div>
+                        <div class="skill-description">Team communication, project coordination, and integration workflows.</div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <div class="skill-name">Zoom</div>
+                        </div>
+                        <div class="skill-description">Video conferencing, remote meetings, and team collaboration.</div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <i class="fab fa-gitlab"></i>
+                            </div>
+                            <div class="skill-name">GitLab</div>
+                        </div>
+                        <div class="skill-description">CI/CD pipelines, code repository management, and DevOps automation.</div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <i class="fab fa-trello"></i>
+                            </div>
+                            <div class="skill-name">Trello</div>
+                        </div>
+                        <div class="skill-description">Project management, task organization, and agile workflow management.</div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-jet-fighter"></i>
+                            </div>
+                            <div class="skill-name">PyCharm</div>
+                        </div>
+                        <div class="skill-description">Python IDE, debugging, code analysis, and development productivity tools.</div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="skill-name">VS Code</div>
+                        </div>
+                        <div class="skill-description">Code editor, extensions, debugging, and multi-language development.</div>
                     </div>
                 </div>
             </div>
@@ -738,78 +286,42 @@
                 </div>
                 
                 <div class="skills-grid">
-                    <div class="skill-card soft-skill-card">
+                    <div class="skill-card">
                         <div class="skill-header">
-                            <div class="skill-icon soft-skill-icon">
+                            <div class="skill-icon">
                                 <i class="fas fa-lightbulb"></i>
                             </div>
                             <div class="skill-name">Problem Solving</div>
                         </div>
-                        <div class="skill-level">
-                            <div class="skill-level-label">
-                                <span>Expert</span>
-                                <span class="skill-level-text">95%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-width="95"></div>
-                            </div>
-                        </div>
                         <div class="skill-description">Analytical thinking and creative solutions for complex technical challenges.</div>
                     </div>
 
-                    <div class="skill-card soft-skill-card">
+                    <div class="skill-card">
                         <div class="skill-header">
-                            <div class="skill-icon soft-skill-icon">
+                            <div class="skill-icon">
                                 <i class="fas fa-users"></i>
                             </div>
                             <div class="skill-name">Team Leadership</div>
                         </div>
-                        <div class="skill-level">
-                            <div class="skill-level-label">
-                                <span>Advanced</span>
-                                <span class="skill-level-text">90%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-width="90"></div>
-                            </div>
-                        </div>
                         <div class="skill-description">Leading development teams, code reviews, and project coordination.</div>
                     </div>
 
-                    <div class="skill-card soft-skill-card">
+                    <div class="skill-card">
                         <div class="skill-header">
-                            <div class="skill-icon soft-skill-icon">
+                            <div class="skill-icon">
                                 <i class="fas fa-comments"></i>
                             </div>
                             <div class="skill-name">Communication</div>
                         </div>
-                        <div class="skill-level">
-                            <div class="skill-level-label">
-                                <span>Advanced</span>
-                                <span class="skill-level-text">88%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-width="88"></div>
-                            </div>
-                        </div>
                         <div class="skill-description">Clear technical communication with stakeholders and team members.</div>
                     </div>
 
-                    <div class="skill-card soft-skill-card">
+                    <div class="skill-card">
                         <div class="skill-header">
-                            <div class="skill-icon soft-skill-icon">
+                            <div class="skill-icon">
                                 <i class="fas fa-tachometer-alt"></i>
                             </div>
                             <div class="skill-name">Result Oriented</div>
-                        </div>
-                        <div class="skill-level">
-                            <div class="skill-level-label">
-                                <span>Expert</span>
-                                <span class="skill-level-text">92%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-width="92"></div>
-                            </div>
                         </div>
                         <div class="skill-description">Focus on delivering high-quality solutions within deadlines.</div>
                     </div>
@@ -818,7 +330,7 @@
         </div>
     </main>
 
-<script>
+    <script>
         // Animate progress bars when they come into view
         function animateProgressBars() {
             const progressBars = document.querySelectorAll('.progress-fill');
@@ -849,8 +361,6 @@
             observer.observe(skillsSection);
         }
 
-
-
         // Navbar background on scroll
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
@@ -859,6 +369,17 @@
             } else {
                 nav.classList.remove('scrolled');
             }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const href = link.getAttribute('href');
+                if (href !== '#') {
+                    window.location.href = href;
+                }
+            });
         });
 
         // Add hover effects to skill cards
@@ -871,6 +392,6 @@
                 this.style.transform = 'translateY(0) scale(1)';
             });
         });
-</script>
+    </script>
 </body>
 </html>
