@@ -3,279 +3,377 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vladyslav Skopenko - Python Developer</title>
+    <title>Vladyslav Skopenko · Backend Engineer (Python)</title>
+    <meta name="description" content="Backend Engineer (Python). I build B2B platforms end to end: data model, API, integrations, deployment. Lead backend contributor at INBULK, a digital commodity trading platform.">
+    <link rel="canonical" href="https://vladskopenko.github.io/">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0f1216" media="(prefers-color-scheme: dark)">
+
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="Vladyslav Skopenko · Backend Engineer (Python)">
+    <meta property="og:description" content="I build B2B platforms end to end: data model, API, integrations, deployment. Lead backend contributor at INBULK, a digital commodity trading platform.">
+    <meta property="og:url" content="https://vladskopenko.github.io/">
+    <meta property="og:image" content="https://vladskopenko.github.io/assets/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Vladyslav Skopenko · Backend Engineer (Python)">
+    <meta name="twitter:description" content="I build B2B platforms end to end: data model, API, integrations, deployment.">
+    <meta name="twitter:image" content="https://vladskopenko.github.io/assets/og.png">
+
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('theme');
+                if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+                var l = localStorage.getItem('lang');
+                if (!l) l = (navigator.language || '').toLowerCase().startsWith('uk') ? 'uk' : 'en';
+                document.documentElement.setAttribute('data-lang', l);
+            } catch (e) {}
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 
-    <style>
-        .hero-section {
-            padding: 8rem 2rem 4rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        .hero-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 3rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-            animation: slideUp 0.8s ease-out;
-        }
-
-        .profile-header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .profile-photo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #667eea;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-            transition: transform 0.3s ease;
-        }
-
-        .profile-photo:hover {
-            transform: scale(1.05);
-        }
-
-        .profile-info h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .profile-info .title {
-            font-size: 1.2rem;
-            color: #667eea;
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-
-        .profile-info .location {
-            color: #666;
-            font-size: 1rem;
-        }
-
-        .about-content {
-            text-align: left;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .about-content p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 1.5rem;
-            animation: fadeIn 1s ease-out 0.3s both;
-        }
-
-        .about-content p:nth-child(2) {
-            animation-delay: 0.5s;
-        }
-
-        .about-content p:nth-child(3) {
-            animation-delay: 0.7s;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            animation: slideUp 0.8s ease-out 0.5s both;
-        }
-
-        .contact-section h2 {
-            text-align: center;
-            font-size: 1.5rem;
-            color: #333;
-            margin-bottom: 2rem;
-            font-weight: 600;
-        }
-
-        .contact-list {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-list li {
-            margin: 0;
-        }
-
-        .contact-list a {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        .contact-list a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
-        }
-
-        .contact-list a i {
-            font-size: 1.1rem;
-        }
-
-        .contact-list a.resume-btn {
-            background: linear-gradient(135deg, #28a745, #20c997);
-            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
-        }
-
-        .contact-list a.resume-btn:hover {
-            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
-        }
-
-        /* Animations */
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Vladyslav Skopenko",
+      "jobTitle": "Backend Engineer (Python)",
+      "url": "https://vladskopenko.github.io/",
+      "email": "mailto:skopirka2k17@gmail.com",
+      "address": { "@type": "PostalAddress", "addressLocality": "Odesa", "addressCountry": "UA" },
+      "worksFor": { "@type": "Organization", "name": "INBULK", "url": "https://inbulk.com/" },
+      "sameAs": [
+        "https://www.linkedin.com/in/vladyslav-skopenko/",
+        "https://github.com/VladSkopenko"
+      ]
+    }
+    </script>
 </head>
 <body>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+        <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+        <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+        <symbol id="i-telegram" viewBox="0 0 24 24"><path fill="currentColor" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+        <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></symbol>
+        <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+        <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+        <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+        <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5.14v13.72c0 .79.87 1.27 1.54.84l10.5-6.86a1 1 0 0 0 0-1.68L9.54 4.3C8.87 3.87 8 4.35 8 5.14z"/></symbol>
+    </defs>
+</svg>
 
-            <nav>
-            <ul>
-                <li><a href="index.html">About me</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="work_ex.html">Work Experience</a></li>
-                <li><a href="skills.html">Skills</a></li>
-                <li><a href="education.html">Education</a></li>
-                <li><a href="interviews.html">Interviews</a></li>
-                <li><a href="reviews.html">Reviews</a></li>
+<header class="topbar">
+    <nav class="topbar-inner" aria-label="Main">
+        <a href="#top" class="brand">VS</a>
+        <ul class="topnav">
+            <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+            <li><a href="#talks" data-i18n="nav.talks">Talks</a></li>
+            <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+            <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+            <li><a href="#recommendations" data-i18n="nav.recommendations">Recommendations</a></li>
+        </ul>
+        <div class="topbar-actions">
+            <button type="button" class="icon-btn" id="langToggle" aria-label="Switch language"><span class="lang-label">UA</span></button>
+            <button type="button" class="icon-btn" id="themeToggle" aria-label="Toggle theme">
+                <svg class="ico ico-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+                <svg class="ico ico-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+            </button>
+            <a href="Vladyslav_Skopenko_CV.pdf" class="btn btn-small" download><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg><span>CV</span></a>
+        </div>
+    </nav>
+</header>
+
+<main id="top">
+
+    <section class="hero" aria-labelledby="name">
+        <img src="assets/photo.jpg" alt="Vladyslav Skopenko" class="hero-photo" width="120" height="120">
+        <div class="hero-text">
+            <p class="eyebrow" data-i18n="hero.title">Backend Engineer (Python)</p>
+            <h1 id="name" data-i18n="hero.name">Vladyslav Skopenko</h1>
+            <p class="lead" data-i18n="hero.lead">I build B2B platforms end to end: data model, API, integrations, deployment. Since 2025 I have been the lead backend contributor at INBULK, a digital commodity trading platform, taking it from an early stage to production.</p>
+            <p class="meta mono" data-i18n="hero.meta">Odesa, Ukraine · Remote</p>
+            <div class="cta-row">
+                <a href="Vladyslav_Skopenko_CV.pdf" class="btn btn-primary" download><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg><span data-i18n="cta.cv">Download CV (PDF)</span></a>
+                <a href="https://t.me/Skopilk" class="btn" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-telegram"/></svg><span data-i18n="cta.telegram">Message on Telegram</span></a>
+            </div>
+            <ul class="link-row">
+                <li><a href="https://www.linkedin.com/in/vladyslav-skopenko/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a></li>
+                <li><a href="https://github.com/VladSkopenko" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a></li>
+                <li><a href="mailto:skopirka2k17@gmail.com"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>skopirka2k17@gmail.com</a></li>
             </ul>
-        </nav>
+        </div>
+    </section>
 
-    <main class="hero-section">
-        <div class="hero-card">
-            <div class="profile-header">
-                <img src="1709744750716.jfif" alt="Vladyslav Skopenko" class="profile-photo">
-                <div class="profile-info">
-                    <h1>Vladyslav Skopenko</h1>
-                    <div class="title">Python Developer</div>
-                    <div class="location">📍 Ukraine</div>
+    <section id="experience" class="section">
+        <h2 data-i18n="exp.heading">Experience</h2>
+
+        <article class="job">
+            <header class="job-head">
+                <div>
+                    <h3 data-i18n="exp.inbulk.role">Backend Engineer (Python)</h3>
+                    <p class="job-company"><a href="https://www.linkedin.com/company/in-bulk/" target="_blank" rel="noopener" data-i18n="exp.inbulk.company">INBULK (formerly iCORN)</a></p>
                 </div>
-            </div>
-            
-            <div class="about-content">
-                <p>
-                    I specialize in Python development, creating web interfaces, and automating processes. 
-                    Highly motivated Python Developer with a set of skills in Web Development. 
-                    Passionate about coding and professional development. Quick learner, with analytical 
-                    thinking and problem-solving skills. Responsible, proactive, reliable, goal-oriented, 
-                    and an adaptive team player.
-                </p>
-                <p>
-                    During my studies, I gained experience as a Team Lead, where I coordinated team members, 
-                    resolved Git conflicts, and assisted with challenging tasks. Additionally, I have experience 
-                    as a Scrum Master, where I learned to manage deadlines and organize stand-ups effectively.
-                </p>
-                <p>
-                    In addition to my main career, I have experience freelancing and actively participate in startups. 
-                    These opportunities have allowed me to work on diverse projects and enhance my skills in dynamic environments.
-                </p>
-            </div>
-        </div>
+                <div class="job-when mono">
+                    <span data-i18n="exp.inbulk.period">Mar 2025 – present</span>
+                    <span data-i18n="exp.inbulk.place">Remote · Kyiv, Ukraine</span>
+                </div>
+            </header>
+            <p class="job-context" data-i18n="exp.inbulk.context">Digital commodity trading platform connecting grain traders, logistics providers and financial partners. Lean team, AI-native development practices.</p>
+            <ul class="bullets">
+                <li data-i18n="exp.inbulk.b1">Top contributor to the codebase (84%). Designed the system architecture, drove technical decisions and shaped engineering processes while shipping the product from an early stage to production.</li>
+                <li data-i18n="exp.inbulk.b2">Built universal OAuth 2.0 authentication (Google, LinkedIn, Meta) in-house, replacing Auth0 and its paid subscription.</li>
+                <li data-i18n="exp.inbulk.b3">Logistics module: transport management, waybill (TTN) documents, driver tracking with Google Maps, Telegram bot for drivers.</li>
+                <li data-i18n="exp.inbulk.b4">Auction system: orders, bidding, counter-offers and templates. Dashboard analytics on SQL/CTE queries with multi-currency aggregation.</li>
+                <li data-i18n="exp.inbulk.b5">Document automation: PDF generation with digital-signature verification, Excel parsing for bulk imports.</li>
+                <li data-i18n="exp.inbulk.b6">Own the data layer: schema design and Alembic migrations on async SQLAlchemy 2.0, N+1 elimination and load testing on multi-million-row datasets.</li>
+                <li data-i18n="exp.inbulk.b7">Platform: WebSocket notifications, Odoo ERP, S3 and Google Maps integrations, Docker, Prometheus, background workers, CI/CD. RAG-powered AI assistant for platform management on LangChain.</li>
+            </ul>
+            <ul class="chips" aria-label="Technologies">
+                <li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>SQLAlchemy 2.0</li><li>Alembic</li><li>Pydantic v2</li><li>LangChain</li><li>WebSocket</li><li>OAuth 2.0</li><li>Docker</li><li>Prometheus</li><li>DigitalOcean</li><li>S3</li>
+            </ul>
+        </article>
 
-        <div class="contact-section">
-            <h2>Get In Touch</h2>
-            <ul class="contact-list">
-                <li><a href="mailto:skopirka2k17@gmail.com"><i class="fas fa-envelope"></i> Email</a></li>
-                <li><a href="https://www.linkedin.com/in/vladyslav-skopenko/"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-                <li><a href="https://t.me/Skopilk"><i class="fab fa-telegram-plane"></i> Telegram</a></li>
-                <li><a href="https://github.com/VladSkopenko"><i class="fab fa-github"></i> GitHub</a></li>
-                <li><a href="https://gitlab.com/VladSkopenko"><i class="fab fa-gitlab"></i> GitLab</a></li>
-                <li><a href="https://drive.google.com/uc?id=1jhk-bgGb07t9GizkHhL0BP9aNW9djt6H" download class="resume-btn"><i class="fas fa-file-download"></i> Download Resume</a></li>
+        <article class="job">
+            <header class="job-head">
+                <div>
+                    <h3 data-i18n="exp.tekra.role">Software Developer · part-time</h3>
+                    <p class="job-company">Tekra</p>
+                </div>
+                <div class="job-when mono">
+                    <span data-i18n="exp.tekra.period">Mar 2024 – Jun 2026</span>
+                    <span data-i18n="exp.tekra.place">Remote</span>
+                </div>
+            </header>
+            <p class="job-context" data-i18n="exp.tekra.context">Project-based engagement with seasonal load: started as a developer, later mostly prototypes, hypothesis checks and internal tooling on demand.</p>
+            <ul class="bullets">
+                <li data-i18n="exp.tekra.b1">Cross-platform desktop application in Python/PyQt6 with a license-key generation and verification system; Inno Setup installers.</li>
+                <li data-i18n="exp.tekra.b2">Automation bots for internal business processes and FastAPI backend services.</li>
+                <li data-i18n="exp.tekra.b3">Multithreading optimization that cut data-processing time in the desktop app.</li>
+            </ul>
+            <ul class="chips" aria-label="Technologies">
+                <li>Python</li><li>PyQt6</li><li>FastAPI</li><li>SQLAlchemy</li><li>Cryptography</li><li>Inno Setup</li>
+            </ul>
+        </article>
+
+        <div class="also">
+            <h3 class="also-title mono" data-i18n="exp.also.heading">Also</h3>
+            <ul class="bullets bullets-plain">
+                <li data-i18n="exp.also.1">Data Science mentor at GoIT, Nov 2024 – Feb 2025: code reviews, workshops and one-on-one support for students.</li>
+                <li data-i18n="exp.also.2">Freelance: Telegram shop bot for an ayurveda store, May – Aug 2024. See Projects below.</li>
             </ul>
         </div>
-    </main>
+    </section>
 
-    <script>
-        // Smooth scrolling for navigation
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                if (this.getAttribute('href').startsWith('#')) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                }
-            });
-        });
+    <section id="talks" class="section">
+        <h2 data-i18n="talks.heading">Talks &amp; media</h2>
 
-        // Navbar background on scroll
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
+        <article class="talk talk-featured">
+            <div class="yt" data-id="LD_GsmzkFhE" data-start="747" data-end="2460">
+                <img src="https://i.ytimg.com/vi/LD_GsmzkFhE/maxresdefault.jpg" alt="" loading="lazy" width="1280" height="720">
+                <button type="button" class="yt-play" aria-label="Play video"><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg></button>
+            </div>
+            <div class="talk-body">
+                <p class="talk-meta mono" data-i18n="talks.1.meta">GoIT online meetup · Aug 2026 · speaker</p>
+                <h3 lang="uk">Хто створює AI — і як стати таким фахівцем</h3>
+                <p data-i18n="talks.1.desc">Talk for GoIT's prospective Python students: Python as the language AI is written in, and written with. Three roles of AI in a backend team: a coding assistant with spec-first rules, a decision engine inside the code, and a chatbot. Case study: the INBULK AI Assistant on LangChain with tools, flow, guardrails and a human in the loop.</p>
+                <p class="talk-note" data-i18n="talks.1.note">My part runs from 12:27 to 41:00. The player is set to that segment; open on YouTube for the full stream.</p>
+                <a class="text-link" href="https://www.youtube.com/watch?v=LD_GsmzkFhE&amp;t=747s" target="_blank" rel="noopener"><span data-i18n="talks.watch">Watch on YouTube</span><svg class="ico" aria-hidden="true"><use href="#i-external"/></svg></a>
+            </div>
+        </article>
 
+        <div class="talk-grid">
+            <article class="talk">
+                <div class="yt" data-id="SxtQ8rhL4YI">
+                    <img src="https://i.ytimg.com/vi/SxtQ8rhL4YI/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+                    <button type="button" class="yt-play" aria-label="Play video"><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg></button>
+                </div>
+                <div class="talk-body">
+                    <p class="talk-meta mono" data-i18n="talks.2.meta">GoIT · 2024 · mock technical interview</p>
+                    <h3 lang="uk">Технічна співбесіда на посаду Junior Python Developer</h3>
+                    <p data-i18n="talks.2.desc">A recorded mock interview from my first year in the industry: Python fundamentals, databases, async.</p>
+                    <a class="text-link" href="https://www.youtube.com/watch?v=SxtQ8rhL4YI" target="_blank" rel="noopener"><span data-i18n="talks.watch">Watch on YouTube</span><svg class="ico" aria-hidden="true"><use href="#i-external"/></svg></a>
+                </div>
+            </article>
 
-    </script>
+            <article class="talk">
+                <div class="yt" data-id="jFbK_pm6kuk">
+                    <img src="https://i.ytimg.com/vi/jFbK_pm6kuk/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+                    <button type="button" class="yt-play" aria-label="Play video"><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg></button>
+                </div>
+                <div class="talk-body">
+                    <p class="talk-meta mono" data-i18n="talks.3.meta">GoIT · 2024 · interview</p>
+                    <h3 lang="uk">Був барменом, став програмістом</h3>
+                    <p data-i18n="talks.3.desc">How I moved from bartending into backend development.</p>
+                    <a class="text-link" href="https://www.youtube.com/watch?v=jFbK_pm6kuk" target="_blank" rel="noopener"><span data-i18n="talks.watch">Watch on YouTube</span><svg class="ico" aria-hidden="true"><use href="#i-external"/></svg></a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <h2 data-i18n="projects.heading">Selected projects</h2>
+        <p class="section-sub" data-i18n="projects.sub">Open-source utilities and freelance work. The main product work at INBULK is closed-source and described above.</p>
+
+        <div class="project-grid">
+            <article class="project">
+                <p class="project-meta mono" data-i18n="projects.1.meta">Freelance · 2024 · in production</p>
+                <h3 data-i18n="projects.1.title">Ayurveda shop Telegram bot</h3>
+                <p data-i18n="projects.1.desc">Shop bot on aiogram with FastAPI webhooks: catalog and cart, referral program, Monobank API integration, promo mailings from Google Sheets, two-way sync with KeyCRM.</p>
+                <p class="project-links">
+                    <a class="text-link" href="https://t.me/Ayurdevbot" target="_blank" rel="noopener"><span data-i18n="projects.1.link1">Open the bot</span><svg class="ico" aria-hidden="true"><use href="#i-external"/></svg></a>
+                    <a class="text-link" href="https://ayurveda-portal.com.ua/" target="_blank" rel="noopener"><span data-i18n="projects.1.link2">Client site</span><svg class="ico" aria-hidden="true"><use href="#i-external"/></svg></a>
+                </p>
+            </article>
+
+            <article class="project">
+                <p class="project-meta mono" data-i18n="projects.2.meta">2026 · Python · FastAPI</p>
+                <h3 data-i18n="projects.2.title">Auction Service</h3>
+                <p data-i18n="projects.2.desc">FastAPI service with live bidding over WebSocket, automatic end-time extension on late bids, Docker Compose setup and Swagger docs.</p>
+                <p class="project-links">
+                    <a class="text-link" href="https://github.com/VladSkopenko/UD_test_task" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-github"/></svg><span>GitHub</span></a>
+                </p>
+            </article>
+
+            <article class="project">
+                <p class="project-meta mono" data-i18n="projects.3.meta">2026 · Python · React</p>
+                <h3 data-i18n="projects.3.title">Route visualization</h3>
+                <p data-i18n="projects.3.desc">Google Directions API route fetcher in Python plus a React/Leaflet viewer that renders 55k-point routes on Canvas.</p>
+                <p class="project-links">
+                    <a class="text-link" href="https://github.com/VladSkopenko/MapPainter" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-github"/></svg><span>GitHub</span></a>
+                </p>
+            </article>
+
+            <article class="project">
+                <p class="project-meta mono" data-i18n="projects.4.meta">2025 · Python</p>
+                <h3 data-i18n="projects.4.title">PDF OCR with Google Cloud Vision</h3>
+                <p data-i18n="projects.4.desc">Text extraction from scanned PDFs with good Cyrillic accuracy; a small wrapper around the Cloud Vision API.</p>
+                <p class="project-links">
+                    <a class="text-link" href="https://github.com/VladSkopenko/PPS" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-github"/></svg><span>GitHub</span></a>
+                </p>
+            </article>
+
+            <article class="project">
+                <p class="project-meta mono" data-i18n="projects.5.meta">2025 · Python · ReportLab</p>
+                <h3 data-i18n="projects.5.title">Invoice generator</h3>
+                <p data-i18n="projects.5.desc">PDF invoices with VAT calculation, Ukrainian fonts and automatic text wrapping in long item descriptions.</p>
+                <p class="project-links">
+                    <a class="text-link" href="https://github.com/VladSkopenko/invoice_generate" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-github"/></svg><span>GitHub</span></a>
+                </p>
+            </article>
+
+            <article class="project">
+                <p class="project-meta mono" data-i18n="projects.6.meta">2026 · Python</p>
+                <h3 data-i18n="projects.6.title">Resume generator</h3>
+                <p data-i18n="projects.6.desc">Dependency-free Python script that renders an A4 resume from a dict to HTML and PDF. The CV on this page is built with it.</p>
+                <p class="project-links">
+                    <a class="text-link" href="https://github.com/VladSkopenko/CV_creator" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-github"/></svg><span>GitHub</span></a>
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <h2 data-i18n="skills.heading">Skills</h2>
+        <dl class="skills">
+            <div class="skill-row">
+                <dt class="mono" data-i18n="skills.g1">Backend</dt>
+                <dd><ul class="chips"><li>Python</li><li>FastAPI</li><li>Pydantic v2</li><li>SQLAlchemy 2.0 (async)</li><li>Alembic</li><li>REST API</li><li>WebSocket</li><li>OAuth 2.0</li><li>Aiogram</li></ul></dd>
+            </div>
+            <div class="skill-row">
+                <dt class="mono" data-i18n="skills.g2">Data</dt>
+                <dd><ul class="chips"><li>PostgreSQL</li><li>SQL / CTE</li><li data-i18n="skills.g2.opt">Query optimization</li><li data-i18n="skills.g2.pipe">Excel / PDF pipelines</li></ul></dd>
+            </div>
+            <div class="skill-row">
+                <dt class="mono" data-i18n="skills.g3">Infrastructure</dt>
+                <dd><ul class="chips"><li>Docker</li><li>Docker Compose</li><li>CI/CD (GitHub, GitLab)</li><li>DigitalOcean</li><li>S3 / boto3</li><li>Prometheus</li><li data-i18n="skills.g3.workers">Background workers</li></ul></dd>
+            </div>
+            <div class="skill-row">
+                <dt class="mono" data-i18n="skills.g4">AI</dt>
+                <dd><ul class="chips"><li>LangChain</li><li>RAG</li><li data-i18n="skills.g4.flow">AI-native development workflow</li></ul></dd>
+            </div>
+            <div class="skill-row">
+                <dt class="mono" data-i18n="skills.g5">Other</dt>
+                <dd><ul class="chips"><li>PyQt6</li><li data-i18n="skills.g5.mt">Multithreading</li><li>Google Maps API</li><li data-i18n="skills.g5.odoo">Odoo ERP integration</li><li data-i18n="skills.g5.tg">Telegram bots</li></ul></dd>
+            </div>
+            <div class="skill-row">
+                <dt class="mono" data-i18n="skills.g6">Languages</dt>
+                <dd><p class="skill-text" data-i18n="skills.langs">Ukrainian: native · English: B1</p></dd>
+            </div>
+        </dl>
+    </section>
+
+    <section id="education" class="section">
+        <h2 data-i18n="edu.heading">Education</h2>
+        <article class="edu">
+            <div class="edu-head">
+                <h3 data-i18n="edu.1.school">Odesa National Economic University</h3>
+                <span class="mono">2017 – 2021</span>
+            </div>
+            <p data-i18n="edu.1.degree">Bachelor's degree, Finance and Banking</p>
+        </article>
+        <article class="edu">
+            <div class="edu-head">
+                <h3 data-i18n="edu.2.school">GoIT</h3>
+                <span class="mono">2023 – 2024</span>
+            </div>
+            <p data-i18n="edu.2.degree">Python Backend Developer program</p>
+            <p data-i18n="edu.2.note">Team lead on the capstone project, a FastAPI photo-sharing service voted best in the cohort.</p>
+            <p class="project-links">
+                <a class="text-link" href="https://drive.google.com/file/d/19HSXyNMYXCODCptOa8ah9w5qpI0F0P1J/view" target="_blank" rel="noopener"><span data-i18n="edu.2.cert">Certificate</span><svg class="ico" aria-hidden="true"><use href="#i-external"/></svg></a>
+                <a class="text-link" href="https://github.com/VladSkopenko/Custom_inst" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-github"/></svg><span data-i18n="edu.2.repo">Capstone repo</span></a>
+            </p>
+        </article>
+    </section>
+
+    <section id="recommendations" class="section">
+        <h2 data-i18n="recs.heading">Recommendations</h2>
+        <p class="section-sub" data-i18n="recs.sub">From LinkedIn, quoted in the original language.</p>
+
+        <blockquote class="rec">
+            <p>“Vladyslav's adept management of agile processes ensured our team remained focused and productive, while his proactive approach to problem-solving fostered a collaborative environment. Beyond his role as Scrum Master, Vladyslav demonstrated exceptional technical prowess by integrating a Telegram bot into our application.”</p>
+            <footer><span class="rec-name">Viktoriia Kalachova</span><span class="mono">Python Developer · Aug 2024</span></footer>
+        </blockquote>
+
+        <blockquote class="rec">
+            <p>“On one of our training projects, Vladyslav held the position of team lead and performed his duties exceptionally well. I was particularly impressed by his innovative and high-quality ideas, which significantly increased the efficiency of our work.”</p>
+            <footer><span class="rec-name">Bohdan Synytskyi</span><span class="mono">Python Developer · Aug 2024</span></footer>
+        </blockquote>
+
+        <blockquote class="rec">
+            <p>“Vladyslav was an excellent teammate, studied diligently, and always helped in challenging situations. He is a great team player and loves to use new technologies in projects.”</p>
+            <footer><span class="rec-name">Andrii Samoilenko</span><span class="mono">Python Developer · May 2025</span></footer>
+        </blockquote>
+
+        <a class="text-link" href="https://www.linkedin.com/in/vladyslav-skopenko/details/recommendations/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-linkedin"/></svg><span data-i18n="recs.link">All recommendations on LinkedIn</span></a>
+    </section>
+
+    <section id="contact" class="section">
+        <h2 data-i18n="contact.heading">Contact</h2>
+        <p class="section-sub" data-i18n="contact.text">Email or Telegram works best.</p>
+        <div class="cta-row">
+            <a href="mailto:skopirka2k17@gmail.com" class="btn btn-primary"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg><span>skopirka2k17@gmail.com</span></a>
+            <a href="https://t.me/Skopilk" class="btn" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-telegram"/></svg><span>@Skopilk</span></a>
+            <a href="https://www.linkedin.com/in/vladyslav-skopenko/" class="btn" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-linkedin"/></svg><span>LinkedIn</span></a>
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <span data-i18n="footer.left">Vladyslav Skopenko · Odesa, Ukraine · Updated September 2026</span>
+    <a class="text-link" href="https://github.com/VladSkopenko/VladSkopenko.github.io" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-github"/></svg><span data-i18n="footer.source">Site source</span></a>
+</footer>
+
+<script src="app.js"></script>
 </body>
 </html>
