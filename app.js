@@ -40,6 +40,7 @@
         'exp.inbulk.b6': 'Завантаження ТТН прискорено з ~10 с до 0,2 с; власний OAuth 2.0 з Google, LinkedIn і Meta замість Auth0; одноразові тікети для авторизації WebSocket.',
         'exp.inbulk.b7.lead': 'DevOps і автоматизація.',
         'exp.inbulk.b7': 'Деплой через GitHub Actions і Tailscale, Docker-сервіси за nginx, n8n-пайплайни для моніторингу цін на зерно.',
+        'exp.inbulk.bot': 'Бот для водіїв у Telegram',
 
         'exp.tekra.role': 'Software Developer · part-time',
         'exp.tekra.period': 'бер. 2024 – черв. 2026',
@@ -51,7 +52,6 @@
 
         'exp.also.heading': 'Також',
         'exp.also.1': 'Ментор Data Science у GoIT, лист. 2024 – лют. 2025: код-рев’ю, воркшопи та індивідуальна підтримка студентів.',
-        'exp.also.2': 'Фриланс: Telegram-бот магазину аюрведи, трав. – серп. 2024. Див. Проєкти нижче.',
 
         'talks.heading': 'Виступи та медіа',
         'talks.watch': 'Дивитися на YouTube',
@@ -64,12 +64,7 @@
         'talks.3.desc': 'Як я перейшов із барної стійки в бекенд-розробку.',
 
         'projects.heading': 'Вибрані проєкти',
-        'projects.sub': 'Open-source утиліти та фриланс. Основна продуктова робота в INBULK закрита і описана вище.',
-        'projects.1.meta': 'Фриланс · 2024 · у продакшні',
-        'projects.1.title': 'Telegram-бот магазину аюрведи',
-        'projects.1.desc': 'Бот-магазин на aiogram з вебхуками FastAPI: каталог і кошик, реферальна програма, інтеграція Monobank API, промо-розсилки з Google Sheets, двостороння синхронізація з KeyCRM.',
-        'projects.1.link1': 'Відкрити бота',
-        'projects.1.link2': 'Сайт клієнта',
+        'projects.sub': 'Open-source проєкти. Основна продуктова робота в INBULK закрита і описана вище.',
         'projects.2.meta': '2026 · Python · FastAPI',
         'projects.2.title': 'Auction Service',
         'projects.2.desc': 'Сервіс на FastAPI з живими ставками через WebSocket, автоматичним продовженням часу при пізніх ставках, Docker Compose і Swagger.',
