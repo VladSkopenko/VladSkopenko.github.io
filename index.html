@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vladyslav Skopenko · Backend Engineer (Python)</title>
-    <meta name="description" content="Backend Engineer (Python). I build B2B platforms end to end: data model, API, integrations, deployment. Lead backend contributor at INBULK, a digital commodity trading platform.">
+    <title>Vladyslav Skopenko · Backend &amp; AI Engineer</title>
+    <meta name="description" content="Backend &amp; AI Engineer (Python). I build backends for grain trading and logistics and the LLM features inside them. Core backend engineer at INBULK.">
     <link rel="canonical" href="https://vladskopenko.github.io/">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#0f1216" media="(prefers-color-scheme: dark)">
 
     <meta property="og:type" content="profile">
-    <meta property="og:title" content="Vladyslav Skopenko · Backend Engineer (Python)">
-    <meta property="og:description" content="I build B2B platforms end to end: data model, API, integrations, deployment. Lead backend contributor at INBULK, a digital commodity trading platform.">
+    <meta property="og:title" content="Vladyslav Skopenko · Backend &amp; AI Engineer">
+    <meta property="og:description" content="Backends for the physical world: grain deals, trucks, vessels and their documents, plus the LLM features inside them. Core backend engineer at INBULK.">
     <meta property="og:url" content="https://vladskopenko.github.io/">
     <meta property="og:image" content="https://vladskopenko.github.io/assets/og.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Vladyslav Skopenko · Backend Engineer (Python)">
-    <meta name="twitter:description" content="I build B2B platforms end to end: data model, API, integrations, deployment.">
+    <meta name="twitter:title" content="Vladyslav Skopenko · Backend &amp; AI Engineer">
+    <meta name="twitter:description" content="Backends for grain trading and logistics, and the LLM features inside them.">
     <meta name="twitter:image" content="https://vladskopenko.github.io/assets/og.png">
 
     <script>
@@ -37,14 +37,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20261027">
 
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Vladyslav Skopenko",
-      "jobTitle": "Backend Engineer (Python)",
+      "jobTitle": "Backend & AI Engineer",
       "url": "https://vladskopenko.github.io/",
       "email": "mailto:skopirka2k17@gmail.com",
       "address": { "@type": "PostalAddress", "addressLocality": "Odesa", "addressCountry": "UA" },
@@ -69,13 +69,15 @@
         <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
         <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
         <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5.14v13.72c0 .79.87 1.27 1.54.84l10.5-6.86a1 1 0 0 0 0-1.68L9.54 4.3C8.87 3.87 8 4.35 8 5.14z"/></symbol>
+        <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></symbol>
+        <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
     </defs>
 </svg>
 
 <header class="topbar">
     <nav class="topbar-inner" aria-label="Main">
         <a href="#top" class="brand">VS</a>
-        <ul class="topnav">
+        <ul class="topnav" id="topnav">
             <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
             <li><a href="#talks" data-i18n="nav.talks">Talks</a></li>
             <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
@@ -88,7 +90,11 @@
                 <svg class="ico ico-sun" aria-hidden="true"><use href="#i-sun"/></svg>
                 <svg class="ico ico-moon" aria-hidden="true"><use href="#i-moon"/></svg>
             </button>
-            <a href="Vladyslav_Skopenko_CV.pdf" class="btn btn-small" download><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg><span>CV</span></a>
+            <a href="Vladyslav_Skopenko_CV.pdf" data-href-uk="Vladyslav_Skopenko_CV_UA.pdf" class="btn btn-small" download><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg><span>CV</span></a>
+            <button type="button" class="icon-btn nav-toggle" id="navToggle" aria-controls="topnav" aria-expanded="false" aria-label="Menu">
+                <svg class="ico ico-menu" aria-hidden="true"><use href="#i-menu"/></svg>
+                <svg class="ico ico-close" aria-hidden="true"><use href="#i-close"/></svg>
+            </button>
         </div>
     </nav>
 </header>
@@ -98,12 +104,12 @@
     <section class="hero" aria-labelledby="name">
         <img src="assets/photo.jpg" alt="Vladyslav Skopenko" class="hero-photo" width="120" height="120">
         <div class="hero-text">
-            <p class="eyebrow" data-i18n="hero.title">Backend Engineer (Python)</p>
+            <p class="eyebrow" data-i18n="hero.title">Backend &amp; AI Engineer · Python, LLM</p>
             <h1 id="name" data-i18n="hero.name">Vladyslav Skopenko</h1>
-            <p class="lead" data-i18n="hero.lead">I build B2B platforms end to end: data model, API, integrations, deployment. Since 2025 I have been the lead backend contributor at INBULK, a digital commodity trading platform, taking it from an early stage to production.</p>
+            <p class="lead" data-i18n="hero.lead">I build backends for the physical world: grain deals, trucks, vessels and their documents, plus the LLM features inside them. Since March 2025 I have been a core backend engineer at INBULK, a B2B platform for grain trading and logistics, from early stage to production.</p>
             <p class="meta mono" data-i18n="hero.meta">Odesa, Ukraine · Remote</p>
             <div class="cta-row">
-                <a href="Vladyslav_Skopenko_CV.pdf" class="btn btn-primary" download><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg><span data-i18n="cta.cv">Download CV (PDF)</span></a>
+                <a href="Vladyslav_Skopenko_CV.pdf" data-href-uk="Vladyslav_Skopenko_CV_UA.pdf" class="btn btn-primary" download><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg><span data-i18n="cta.cv">Download CV (PDF)</span></a>
                 <a href="https://t.me/Skopilk" class="btn" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-telegram"/></svg><span data-i18n="cta.telegram">Message on Telegram</span></a>
             </div>
             <ul class="link-row">
@@ -113,6 +119,13 @@
             </ul>
         </div>
     </section>
+
+    <ul class="stats" aria-label="Highlights">
+        <li><span class="stat-value" data-i18n="stats.1.value">50,000 t</span><span class="stat-label" data-i18n="stats.1">grain traded on the platform</span></li>
+        <li><span class="stat-value">260+</span><span class="stat-label" data-i18n="stats.2">of ~500 database migrations authored</span></li>
+        <li><span class="stat-value" data-i18n="stats.3.value">10 s → 0.2 s</span><span class="stat-label" data-i18n="stats.3">waybill (TTN) download time</span></li>
+        <li><span class="stat-value">80+</span><span class="stat-label" data-i18n="stats.4">specs for agent-driven development</span></li>
+    </ul>
 
     <section id="experience" class="section">
         <h2 data-i18n="exp.heading">Experience</h2>
@@ -128,18 +141,18 @@
                     <span data-i18n="exp.inbulk.place">Remote · Kyiv, Ukraine</span>
                 </div>
             </header>
-            <p class="job-context" data-i18n="exp.inbulk.context">Digital commodity trading platform connecting grain traders, logistics providers and financial partners. Lean team, AI-native development practices.</p>
+            <p class="job-context" data-i18n="exp.inbulk.context">B2B platform where grain traders, carriers, terminals and financial partners close and execute deals. Lean team, AI-native development.</p>
             <ul class="bullets">
-                <li data-i18n="exp.inbulk.b1">Top contributor to the codebase (84%). Designed the system architecture, drove technical decisions and shaped engineering processes while shipping the product from an early stage to production.</li>
-                <li data-i18n="exp.inbulk.b2">Built universal OAuth 2.0 authentication (Google, LinkedIn, Meta) in-house, replacing Auth0 and its paid subscription.</li>
-                <li data-i18n="exp.inbulk.b3">Logistics module: transport management, waybill (TTN) documents, driver tracking with Google Maps, Telegram bot for drivers.</li>
-                <li data-i18n="exp.inbulk.b4">Auction system: orders, bidding, counter-offers and templates. Dashboard analytics on SQL/CTE queries with multi-currency aggregation.</li>
-                <li data-i18n="exp.inbulk.b5">Document automation: PDF generation with digital-signature verification, Excel parsing for bulk imports.</li>
-                <li data-i18n="exp.inbulk.b6">Own the data layer: schema design and Alembic migrations on async SQLAlchemy 2.0, N+1 elimination and load testing on multi-million-row datasets.</li>
-                <li data-i18n="exp.inbulk.b7">Platform: WebSocket notifications, Odoo ERP, S3 and Google Maps integrations, Docker, Prometheus, background workers, CI/CD. RAG-powered AI assistant for platform management on LangChain.</li>
+                <li><strong data-i18n="exp.inbulk.b1.lead">Logistics end to end.</strong> <span data-i18n="exp.inbulk.b1">Deliveries, truck voyages with weighing, a Telegram bot for drivers, vessel voyages and nominations, laytime and demurrage, PDF waybills (TTN).</span></li>
+                <li><strong data-i18n="exp.inbulk.b2.lead">Data layer.</strong> <span data-i18n="exp.inbulk.b2">Async SQLAlchemy 2.0 models and 260+ Alembic migrations, including a refactor that moved logistics data from deals into a dedicated delivery aggregate.</span></li>
+                <li><strong data-i18n="exp.inbulk.b3.lead">Analytics.</strong> <span data-i18n="exp.inbulk.b3">Warehouse stocks and dashboards on PostgreSQL CTE and JSONB queries with multi-currency totals.</span></li>
+                <li><strong data-i18n="exp.inbulk.b4.lead">LLM features.</strong> <span data-i18n="exp.inbulk.b4">Port documents (NOR, SOF) turned into a deterministic laytime timeline and checked by an eval harness; vessel certificate extraction; domain tools for the LangChain assistant.</span></li>
+                <li><strong data-i18n="exp.inbulk.b5.lead">Agentic development.</strong> <span data-i18n="exp.inbulk.b5">Introduced spec-driven work with Claude Code and BMAD to the team: 80+ specs, tests before code, multi-agent code review.</span></li>
+                <li><strong data-i18n="exp.inbulk.b6.lead">Performance and security.</strong> <span data-i18n="exp.inbulk.b6">Waybill download time cut from ~10 s to 0.2 s; in-house OAuth 2.0 with Google, LinkedIn and Meta replacing Auth0; one-time tickets for WebSocket auth.</span></li>
+                <li><strong data-i18n="exp.inbulk.b7.lead">DevOps and automation.</strong> <span data-i18n="exp.inbulk.b7">GitHub Actions deploy over Tailscale, Docker services behind nginx, n8n pipelines for grain price monitoring.</span></li>
             </ul>
             <ul class="chips" aria-label="Technologies">
-                <li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>SQLAlchemy 2.0</li><li>Alembic</li><li>Pydantic v2</li><li>LangChain</li><li>WebSocket</li><li>OAuth 2.0</li><li>Docker</li><li>Prometheus</li><li>DigitalOcean</li><li>S3</li>
+                <li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>SQLAlchemy 2.0</li><li>Alembic</li><li>Pydantic v2</li><li>OpenAI API</li><li>LangChain</li><li>n8n</li><li>WebSocket</li><li>OAuth 2.0</li><li>Docker</li><li>GitHub Actions</li><li>S3</li>
             </ul>
         </article>
 
@@ -274,7 +287,7 @@
             <article class="project">
                 <p class="project-meta mono" data-i18n="projects.6.meta">2026 · Python</p>
                 <h3 data-i18n="projects.6.title">Resume generator</h3>
-                <p data-i18n="projects.6.desc">Dependency-free Python script that renders an A4 resume from a dict to HTML and PDF. The CV on this page is built with it.</p>
+                <p data-i18n="projects.6.desc">Dependency-free Python tool that renders CV variants per language and role to A4 HTML and PDF, with tests. The CV on this page is built with it.</p>
                 <p class="project-links">
                     <a class="text-link" href="https://github.com/VladSkopenko/CV_creator" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-github"/></svg><span>GitHub</span></a>
                 </p>
@@ -287,23 +300,23 @@
         <dl class="skills">
             <div class="skill-row">
                 <dt class="mono" data-i18n="skills.g1">Backend</dt>
-                <dd><ul class="chips"><li>Python</li><li>FastAPI</li><li>Pydantic v2</li><li>SQLAlchemy 2.0 (async)</li><li>Alembic</li><li>REST API</li><li>WebSocket</li><li>OAuth 2.0</li><li>Aiogram</li></ul></dd>
-            </div>
-            <div class="skill-row">
-                <dt class="mono" data-i18n="skills.g2">Data</dt>
-                <dd><ul class="chips"><li>PostgreSQL</li><li>SQL / CTE</li><li data-i18n="skills.g2.opt">Query optimization</li><li data-i18n="skills.g2.pipe">Excel / PDF pipelines</li></ul></dd>
-            </div>
-            <div class="skill-row">
-                <dt class="mono" data-i18n="skills.g3">Infrastructure</dt>
-                <dd><ul class="chips"><li>Docker</li><li>Docker Compose</li><li>CI/CD (GitHub, GitLab)</li><li>DigitalOcean</li><li>S3 / boto3</li><li>Prometheus</li><li data-i18n="skills.g3.workers">Background workers</li></ul></dd>
+                <dd><ul class="chips"><li>Python</li><li>FastAPI</li><li>Pydantic v2</li><li>SQLAlchemy 2.0 (async)</li><li>Alembic</li><li>REST API</li><li>WebSocket</li><li>OAuth 2.0</li><li data-i18n="skills.g1.workers">Background workers</li></ul></dd>
             </div>
             <div class="skill-row">
                 <dt class="mono" data-i18n="skills.g4">AI</dt>
-                <dd><ul class="chips"><li>LangChain</li><li>RAG</li><li data-i18n="skills.g4.flow">AI-native development workflow</li></ul></dd>
+                <dd><ul class="chips"><li>OpenAI API</li><li>LangChain (tool calling)</li><li data-i18n="skills.g4.extract">Structured extraction</li><li>Evals</li><li>Claude Code</li><li>BMAD</li><li data-i18n="skills.g4.flow">Spec-driven development with agents</li></ul></dd>
+            </div>
+            <div class="skill-row">
+                <dt class="mono" data-i18n="skills.g2">Data</dt>
+                <dd><ul class="chips"><li>PostgreSQL</li><li>SQL / CTE / JSONB</li><li data-i18n="skills.g2.opt">Query optimization</li><li data-i18n="skills.g2.pipe">Excel / PDF pipelines</li></ul></dd>
+            </div>
+            <div class="skill-row">
+                <dt class="mono" data-i18n="skills.g3">Infrastructure</dt>
+                <dd><ul class="chips"><li>Docker</li><li>Docker Compose</li><li>GitHub Actions</li><li>nginx</li><li>Tailscale</li><li>S3 / boto3</li><li>n8n</li></ul></dd>
             </div>
             <div class="skill-row">
                 <dt class="mono" data-i18n="skills.g5">Other</dt>
-                <dd><ul class="chips"><li>PyQt6</li><li data-i18n="skills.g5.mt">Multithreading</li><li>Google Maps API</li><li data-i18n="skills.g5.odoo">Odoo ERP integration</li><li data-i18n="skills.g5.tg">Telegram bots</li></ul></dd>
+                <dd><ul class="chips"><li data-i18n="skills.g5.tg">Telegram bots (aiogram, Telethon)</li><li>Google Maps API</li><li>React / TypeScript</li><li>PyQt6</li><li data-i18n="skills.g5.mt">Multithreading</li></ul></dd>
             </div>
             <div class="skill-row">
                 <dt class="mono" data-i18n="skills.g6">Languages</dt>
@@ -319,7 +332,7 @@
                 <h3 data-i18n="edu.1.school">Odesa National Economic University</h3>
                 <span class="mono">2017 – 2021</span>
             </div>
-            <p data-i18n="edu.1.degree">Bachelor's degree, Finance and Banking</p>
+            <p data-i18n="edu.1.degree">Bachelor's degree, Finance, Banking and Insurance</p>
         </article>
         <article class="edu">
             <div class="edu-head">
@@ -370,10 +383,10 @@
 </main>
 
 <footer class="footer">
-    <span data-i18n="footer.left">Vladyslav Skopenko · Odesa, Ukraine · Updated September 2026</span>
+    <span data-i18n="footer.left">Vladyslav Skopenko · Odesa, Ukraine · Updated October 2026</span>
     <a class="text-link" href="https://github.com/VladSkopenko/VladSkopenko.github.io" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-github"/></svg><span data-i18n="footer.source">Site source</span></a>
 </footer>
 
-<script src="app.js"></script>
+<script src="app.js?v=20261027"></script>
 </body>
 </html>
