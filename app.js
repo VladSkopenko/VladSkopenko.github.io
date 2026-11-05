@@ -63,8 +63,16 @@
         'talks.3.meta': 'GoIT · 2024 · інтерв’ю',
         'talks.3.desc': 'Як я перейшов із барної стійки в бекенд-розробку.',
 
+        'press.tag': 'Преса',
+        'press.1.meta': 'dev.ua · лист. 2026 · Стартап',
+        'press.1.desc': 'dev.ua написав про bot_allert, мій open-source Telegram-бот. Він об’єднує канали тривог з однієї папки Telegram в одну стрічку: заглушені канали приходять беззвучно, решта — зі звуком.',
+        'press.read': 'Читати на dev.ua',
+
         'projects.heading': 'Вибрані проєкти',
         'projects.sub': 'Open-source проєкти. Основна продуктова робота в INBULK закрита і описана вище.',
+        'projects.1.meta': '2026 · Python · Telethon · Docker',
+        'projects.1.desc': 'Self-hosted Telegram-бот, що зводить канали тривог з однієї папки в одну стрічку і враховує, які канали заглушені. Userbot читає, звичайний бот надсилає; працює в ~100 МБ на безкоштовній VM Oracle Cloud.',
+        'projects.1.press': 'Про нього написав dev.ua',
         'projects.2.meta': '2026 · Python · FastAPI',
         'projects.2.title': 'Auction Service',
         'projects.2.desc': 'Сервіс на FastAPI з живими ставками через WebSocket, автоматичним продовженням часу при пізніх ставках, Docker Compose і Swagger.',
@@ -113,7 +121,7 @@
         'contact.heading': 'Контакти',
         'contact.text': 'Найзручніше писати на пошту або в Telegram.',
 
-        'footer.left': 'Владислав Скопенко · Одеса · Оновлено в жовтні 2026',
+        'footer.left': 'Владислав Скопенко · Одеса · Оновлено в листопаді 2026',
         'footer.source': 'Код сайту'
     };
 
