@@ -98,7 +98,7 @@
                 <svg class="ico ico-sun" aria-hidden="true"><use href="#i-sun"/></svg>
                 <svg class="ico ico-moon" aria-hidden="true"><use href="#i-moon"/></svg>
             </button>
-            <a href="Vladyslav_Skopenko_CV.pdf" data-href-uk="Vladyslav_Skopenko_CV_UA.pdf" class="btn btn-small" download><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg><span>CV</span></a>
+            <a href="Vladyslav_Skopenko_CV.pdf" class="btn btn-small" download><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg><span>CV</span></a>
             <button type="button" class="icon-btn nav-toggle" id="navToggle" aria-controls="topnav" aria-expanded="false" aria-label="Menu">
                 <svg class="ico ico-menu" aria-hidden="true"><use href="#i-menu"/></svg>
                 <svg class="ico ico-close" aria-hidden="true"><use href="#i-close"/></svg>
@@ -114,10 +114,10 @@
         <div class="hero-text">
             <p class="eyebrow" data-i18n="hero.title">Backend &amp; AI Engineer · Python, LLM</p>
             <h1 id="name" data-i18n="hero.name">Vladyslav Skopenko</h1>
-            <p class="lead" data-i18n="hero.lead">I build backends for the physical world: grain deals, trucks, vessels and their documents, plus the LLM features inside them. Since March 2025 I have been a core backend engineer at INBULK, a B2B platform for grain trading and logistics, from early stage to production.</p>
+            <p class="lead" data-i18n="hero.lead">I build backends for the physical world: grain deals, trucks, vessels and their documents, plus the LLM features inside them. I also build the development process around AI agents, so that the quality doesn't depend on who writes the code: a person or an agent. Since March 2025 I have been a core backend engineer at INBULK, a B2B platform for grain trading and logistics, from early stage to production.</p>
             <p class="meta mono" data-i18n="hero.meta">Odesa, Ukraine · Remote</p>
             <div class="cta-row">
-                <a href="Vladyslav_Skopenko_CV.pdf" data-href-uk="Vladyslav_Skopenko_CV_UA.pdf" class="btn btn-primary" download><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg><span data-i18n="cta.cv">Download CV (PDF)</span></a>
+                <a href="Vladyslav_Skopenko_CV.pdf" class="btn btn-primary" download><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg><span data-i18n="cta.cv">Download CV (PDF)</span></a>
                 <a href="https://t.me/Skopilk" class="btn" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-telegram"/></svg><span data-i18n="cta.telegram">Message on Telegram</span></a>
             </div>
             <ul class="link-row">
@@ -130,9 +130,9 @@
 
     <ul class="stats" aria-label="Highlights">
         <li><span class="stat-value" data-i18n="stats.1.value">50,000 t</span><span class="stat-label" data-i18n="stats.1">grain traded on the platform</span></li>
-        <li><span class="stat-value">35%</span><span class="stat-label" data-i18n="stats.2">of all commits in the INBULK backend, top contributor</span></li>
+        <li><span class="stat-value">216 / 216</span><span class="stat-label" data-i18n="stats.2">extracted prices exact: an LLM reading price photos and Telegram posts, on a labelled test set</span></li>
         <li><span class="stat-value" data-i18n="stats.3.value">10 s → 0.2 s</span><span class="stat-label" data-i18n="stats.3">waybill (TTN) download time</span></li>
-        <li><span class="stat-value">80+</span><span class="stat-label" data-i18n="stats.4">specs for agent-driven development</span></li>
+        <li><span class="stat-value" data-i18n="stats.4.value">&lt; 1 month</span><span class="stat-label" data-i18n="stats.4">to build Backend Showcase alone with AI agents, live in the cloud</span></li>
     </ul>
 
     <section id="experience" class="section">
@@ -151,17 +151,17 @@
             </header>
             <p class="job-context" data-i18n="exp.inbulk.context">B2B platform where grain traders, carriers, terminals and financial partners close and execute deals. Lean team, AI-native development.</p>
             <ul class="bullets">
-                <li><strong data-i18n="exp.inbulk.b1.lead">Logistics end to end.</strong> <span data-i18n="exp.inbulk.b1">Deliveries, truck voyages with weighing, a Telegram bot for drivers, vessel voyages and nominations, laytime and demurrage, PDF waybills (TTN).</span></li>
-                <li><strong data-i18n="exp.inbulk.b8.lead">Deal execution and terminals.</strong> <span data-i18n="exp.inbulk.b8">Counter offers with deadlines and extensions, settlement and prepayment, VAT rates for multi-quality contracts, disputed payments, two-sided closing, shipment document drafts shared through chat; order rules such as auto-stopping a sold-out multi-order; terminal appointments with lab checks, quality sampling and Excel registries.</span></li>
-                <li><strong data-i18n="exp.inbulk.b2.lead">Data layer.</strong> <span data-i18n="exp.inbulk.b2">Async SQLAlchemy 2.0 models and more than half of the ~550 Alembic migrations, including a refactor that moved logistics data from deals into a dedicated delivery aggregate.</span></li>
-                <li><strong data-i18n="exp.inbulk.b3.lead">Analytics.</strong> <span data-i18n="exp.inbulk.b3">Warehouse stocks and platform dashboards on PostgreSQL CTE and JSONB queries with multi-currency totals; buy and sell product charts with class and protein filters.</span></li>
-                <li><strong data-i18n="exp.inbulk.b4.lead">LLM features.</strong> <span data-i18n="exp.inbulk.b4">Port documents (NOR, SOF) turned into a deterministic laytime timeline and checked by an eval harness; vessel certificate extraction; domain tools for the LangChain assistant.</span></li>
-                <li><strong data-i18n="exp.inbulk.b5.lead">Agentic development.</strong> <span data-i18n="exp.inbulk.b5">Introduced spec-driven work with Claude Code and BMAD to the team: 80+ specs, tests before code, multi-agent code review.</span></li>
-                <li><strong data-i18n="exp.inbulk.b6.lead">Performance and security.</strong> <span data-i18n="exp.inbulk.b6">Waybill download time cut from ~10 s to 0.2 s; in-house OAuth 2.0 with Google and LinkedIn replacing Auth0; one-time tickets for WebSocket auth.</span></li>
-                <li><strong data-i18n="exp.inbulk.b7.lead">DevOps and automation.</strong> <span data-i18n="exp.inbulk.b7">GitHub Actions deploy over Tailscale, Docker services behind nginx; a grain price pipeline of 10 n8n workflows that scrape marketplaces and Telegram channels, normalize offers with an LLM and NBU rates and feed the platform, with Code nodes kept as JavaScript files under 270+ node tests.</span></li>
+                <li><strong data-i18n="exp.inbulk.b1.lead">Logistics domain, main author.</strong> <span data-i18n="exp.inbulk.b1">Split deliveries out of deals into their own domain model and migrated live PostgreSQL data with reversible Alembic migrations; truck and sea shipments, laytime and demurrage, waybills, VAT, a registry of 13,754 world ports; drivers get a Telegram invite to the terminal gate instead of a guard searching the parking lot.</span></li>
+                <li><strong data-i18n="exp.inbulk.b2.lead">Deal execution and terminals.</strong> <span data-i18n="exp.inbulk.b2">Counter offers with deadlines and extensions, settlement and prepayment, VAT rates for multi-quality contracts, disputed payments, two-sided closing, shipment document drafts shared through chat; order rules such as auto-stopping a sold-out multi-order; terminal appointments with lab checks, quality sampling and Excel registries.</span></li>
+                <li><strong data-i18n="exp.inbulk.b3.lead">LLM document processing.</strong> <span data-i18n="exp.inbulk.b3">An LLM (OpenAI API, structured outputs) reads scanned port documents and rule-based code calculates waiting time and penalties, checked by an evaluation script; vessel forms are filled from certificate PDFs; tool calling for the team's LangChain AI assistant.</span></li>
+                <li><strong data-i18n="exp.inbulk.b4.lead">Market price data on n8n.</strong> <span data-i18n="exp.inbulk.b4">n8n workflows collect prices from grain marketplaces, a trader's price list and Telegram channels, normalize them (LLM for free text and photos, NBU exchange rates) and feed a public REST API of prices by region and a daily market summary for the team.</span></li>
+                <li><strong data-i18n="exp.inbulk.b5.lead">Performance.</strong> <span data-i18n="exp.inbulk.b5">Waybill PDF download cut from ~10 s to 0.2 s and the file from ~1 MB to under 300 KB: one shared font subset, whole-body responses instead of streaming, S3 I/O moved off the event loop.</span></li>
+                <li><strong data-i18n="exp.inbulk.b6.lead">Auth and security.</strong> <span data-i18n="exp.inbulk.b6">In-house OAuth 2.0 (Google, LinkedIn) with JWT sessions; WebSocket auth moved to single-use 30-second tickets, so access tokens no longer land in proxy and CDN logs.</span></li>
+                <li><strong data-i18n="exp.inbulk.b7.lead">AI-assisted development.</strong> <span data-i18n="exp.inbulk.b7">Introduced a team process where AI coding agents (Claude Code) write code from a written spec, tests come first and every change passes code review; reviews stopped defects before release, such as deals whose penalties could never be calculated.</span></li>
+                <li><strong data-i18n="exp.inbulk.b8.lead">Analytics.</strong> <span data-i18n="exp.inbulk.b8">Warehouse stocks and platform dashboards on PostgreSQL CTE and JSONB queries with multi-currency totals; buy and sell product charts with class and protein filters.</span></li>
             </ul>
             <ul class="chips" aria-label="Technologies">
-                <li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>SQLAlchemy 2.0</li><li>Alembic</li><li>Pydantic v2</li><li>OpenAI API</li><li>LangChain</li><li>n8n</li><li>WebSocket</li><li>OAuth 2.0</li><li>Docker</li><li>GitHub Actions</li><li>S3</li>
+                <li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>SQLAlchemy 2.0</li><li>Alembic</li><li>Pydantic v2</li><li>asyncio</li><li>OpenAI API</li><li>LangChain</li><li>Claude Code</li><li>n8n</li><li>WebSocket</li><li>OAuth 2.0</li><li>Docker</li><li>S3</li>
             </ul>
             <p class="project-links">
                 <a class="text-link" href="https://t.me/inbulk_drivers_bot" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-telegram"/></svg><span data-i18n="exp.inbulk.bot">Driver bot in Telegram</span><svg class="ico" aria-hidden="true"><use href="#i-external"/></svg></a>
@@ -190,12 +190,6 @@
             </ul>
         </article>
 
-        <div class="also">
-            <h3 class="also-title mono" data-i18n="exp.also.heading">Also</h3>
-            <ul class="bullets bullets-plain">
-                <li data-i18n="exp.also.1">Data Science mentor at GoIT, Nov 2024 – Feb 2025: code reviews, workshops and one-on-one support for students.</li>
-            </ul>
-        </div>
     </section>
 
     <section id="talks" class="section">
@@ -260,9 +254,9 @@
 
         <div class="project-grid">
             <article class="project">
-                <p class="project-meta mono" data-i18n="projects.0.meta">2026 · Python · FastAPI · Terraform · GitHub Actions</p>
+                <p class="project-meta mono" data-i18n="projects.0.meta">2026 · FastAPI · PostgreSQL · LangChain · Terraform</p>
                 <h3 data-i18n="projects.0.title">Backend Showcase</h3>
-                <p data-i18n="projects.0.desc">REST API for a restaurant chain built to show delivery end to end: CI with ruff, mypy, import-linter and pytest on a real PostgreSQL; Docker images built once per git tree, scanned with Trivy and promoted by digest; Terraform for an Oracle Cloud VM, network and Object Storage; Caddy with HTTPS; deploys over Tailscale; an n8n booking simulator and public Grafana dashboards; 18 ADRs.</p>
+                <p data-i18n="projects.0.desc">Built alone with AI agents in under a month: a live cloud REST API for a restaurant chain with automatic deploys, monitoring and an AI assistant on LangChain and OpenAI. FastAPI and PostgreSQL, Docker images promoted by digest through GitHub Actions, Terraform on Oracle Cloud, Prometheus and public Grafana dashboards, an n8n simulator of guest traffic; runs for $0. Reviews stopped real bugs before release, such as logins silently dropping their session cookie.</p>
                 <p class="project-links">
                     <a class="text-link" href="https://github.com/VladSkopenko/backend-showcase" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-github"/></svg><span>GitHub</span></a>
                     <a class="text-link" href="https://backend-showcase-dev.duckdns.org/docs" target="_blank" rel="noopener"><span data-i18n="projects.0.api">API docs</span><svg class="ico" aria-hidden="true"><use href="#i-external"/></svg></a>
@@ -319,7 +313,7 @@
             <article class="project">
                 <p class="project-meta mono" data-i18n="projects.6.meta">2026 · Python</p>
                 <h3 data-i18n="projects.6.title">Resume generator</h3>
-                <p data-i18n="projects.6.desc">Dependency-free Python tool that renders single-column, ATS-friendly CVs per language to A4 HTML and PDF, with tests. The CV on this page is built with it.</p>
+                <p data-i18n="projects.6.desc">Dependency-free Python tool that renders a single-column, black-and-white, ATS-friendly CV to A4 HTML and PDF, one file per job title, with tests. The CV on this page is built with it.</p>
                 <p class="project-links">
                     <a class="text-link" href="https://github.com/VladSkopenko/CV_creator" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-github"/></svg><span>GitHub</span></a>
                 </p>
@@ -332,19 +326,19 @@
         <dl class="skills">
             <div class="skill-row">
                 <dt class="mono" data-i18n="skills.g1">Backend</dt>
-                <dd><ul class="chips"><li>Python</li><li>FastAPI</li><li>Pydantic v2</li><li>SQLAlchemy 2.0 (async)</li><li>Alembic</li><li>REST API</li><li>WebSocket</li><li>OAuth 2.0</li><li data-i18n="skills.g1.workers">Background workers</li></ul></dd>
+                <dd><ul class="chips"><li>Python</li><li>FastAPI</li><li>Django</li><li>REST API</li><li>asyncio</li><li>Pydantic v2</li><li>SQLAlchemy 2.0 (async)</li><li>Alembic</li><li>WebSocket</li><li>OAuth 2.0</li><li>JWT</li><li>pytest</li><li>Git</li></ul></dd>
             </div>
             <div class="skill-row">
                 <dt class="mono" data-i18n="skills.g4">AI</dt>
-                <dd><ul class="chips"><li>OpenAI API</li><li>LangChain (tool calling)</li><li data-i18n="skills.g4.extract">Structured extraction</li><li>Evals</li><li>Claude Code</li><li>BMAD</li><li data-i18n="skills.g4.flow">Spec-driven development with agents</li></ul></dd>
+                <dd><ul class="chips"><li>LLM</li><li>OpenAI API</li><li>LangChain</li><li>Tool calling</li><li>Structured outputs</li><li>Prompt engineering</li><li>LLM evaluation</li><li>AI agents</li><li>Claude Code</li></ul></dd>
             </div>
             <div class="skill-row">
                 <dt class="mono" data-i18n="skills.g2">Data</dt>
-                <dd><ul class="chips"><li>PostgreSQL</li><li>SQL / CTE / JSONB</li><li data-i18n="skills.g2.opt">Query optimization</li><li data-i18n="skills.g2.pipe">Excel / PDF pipelines</li></ul></dd>
+                <dd><ul class="chips"><li>PostgreSQL</li><li>SQL / CTE / JSONB</li><li data-i18n="skills.g2.opt">Query optimization</li><li>Redis</li><li data-i18n="skills.g2.pipe">Excel / PDF processing</li></ul></dd>
             </div>
             <div class="skill-row">
                 <dt class="mono" data-i18n="skills.g3">Infrastructure</dt>
-                <dd><ul class="chips"><li>GitHub Actions (CI/CD)</li><li>Docker</li><li>Docker Compose</li><li>Terraform</li><li>Oracle Cloud (OCI)</li><li>Caddy</li><li>nginx</li><li>Tailscale</li><li>Trivy</li><li>GHCR</li><li>Grafana</li><li>S3 / Object Storage</li><li>n8n</li></ul></dd>
+                <dd><ul class="chips"><li>GitHub Actions (CI/CD)</li><li>Docker</li><li>Docker Compose</li><li>Terraform</li><li>Oracle Cloud (OCI)</li><li>Linux</li><li>nginx</li><li>Prometheus</li><li>Grafana</li><li>S3 / Object Storage</li><li>n8n</li></ul></dd>
             </div>
             <div class="skill-row">
                 <dt class="mono" data-i18n="skills.g5">Other</dt>
@@ -430,6 +424,6 @@
     <a class="text-link" href="https://github.com/VladSkopenko/VladSkopenko.github.io" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-github"/></svg><span data-i18n="footer.source">Site source</span></a>
 </footer>
 
-<script src="app.js?v=20261105"></script>
+<script src="app.js?v=20261120"></script>
 </body>
 </html>
